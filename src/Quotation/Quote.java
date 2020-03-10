@@ -32,6 +32,7 @@ public class Quote {
         currentState = newQuoteState;
     }
 
+    //TODO insert validation of user permissions here
     public void climb() {
         currentState.climb();
     }
@@ -52,8 +53,6 @@ public class Quote {
     QuoteState getSupervisorState() { return supervisorState; }
     QuoteState getManagerState() { return managerState; }
     QuoteState getPolicyState() { return policyState; }
-
-
 
 
     public int getZone() { return zone;}

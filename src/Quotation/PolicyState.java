@@ -2,7 +2,7 @@ package Quotation;
 
 public class PolicyState implements QuoteState {
 
-    Quote quote;
+    private Quote quote;
 
     PolicyState(Quote sentQuote) {
         quote = sentQuote;
