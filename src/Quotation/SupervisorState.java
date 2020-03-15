@@ -11,7 +11,7 @@ public class SupervisorState implements QuoteState  {
     @Override
     public void climb() {
         quote.setOwner(quote.getBroker().manager);
-        quote.setQuoteState(quote.getManagerState());
+        quote.setQuoteState("M");
     }
 
     @Override
@@ -23,12 +23,12 @@ public class SupervisorState implements QuoteState  {
     public void reject() {
         quote.setOwner(quote.getBroker());
         quote.setStatus("REJECTED");
-        quote.setQuoteState(quote.getApplicantState());
+        quote.setQuoteState("A");
     }
 
     @Override
     public void accept() {
         quote.setStatus("APPROVED");
-        quote.setQuoteState(quote.getPolicyState());
+        quote.setQuoteState("P");
     }
 }

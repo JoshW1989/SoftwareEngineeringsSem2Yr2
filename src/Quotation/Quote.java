@@ -3,10 +3,8 @@ package Quotation;
 public class Quote {
 
     private QuoteState currentState;
-    private QuoteState applicantState;
-    private QuoteState supervisorState;
-    private QuoteState managerState;
-    private QuoteState policyState;
+
+    //TODO only implement these when needed
 
     private int zone;
     private String crop;
@@ -19,17 +17,27 @@ public class Quote {
     public Quote() {
 
         //TODO build constructor fully
-        applicantState = new ApplicantState(this);
-        supervisorState = new SupervisorState(this);
-        managerState = new ManagerState(this);
-        policyState = new PolicyState(this);
-
-        currentState = applicantState;
+        //TODO make the quote generation algorhythm that pattern which hides what alogrhtym performs the function
+        currentState = new ApplicantState(this);
 
     }
 
-    void setQuoteState(QuoteState newQuoteState) {
-        currentState = newQuoteState;
+    // Used to set the current state of the quote
+    void setQuoteState(String type) {
+        switch(type) {
+            case "A":
+                currentState = new ApplicantState(this);
+                break;
+            case "S":
+                currentState = new SupervisorState(this);
+                break;
+            case "M":
+                currentState = new ManagerState(this);
+                break;
+            case "P":
+                currentState = new PolicyState(this);
+                break;
+        }
     }
 
     //TODO insert validation of user permissions here
@@ -48,11 +56,6 @@ public class Quote {
     public void accept() {
         currentState.accept();
     }
-
-    QuoteState getApplicantState() { return applicantState; }
-    QuoteState getSupervisorState() { return supervisorState; }
-    QuoteState getManagerState() { return managerState; }
-    QuoteState getPolicyState() { return policyState; }
 
 
     public int getZone() { return zone;}
@@ -75,8 +78,6 @@ public class Quote {
 
     public User getOwner() { return owner;}
     public void setOwner(User newOwner) {owner = newOwner;}
-
-
 
 
 }

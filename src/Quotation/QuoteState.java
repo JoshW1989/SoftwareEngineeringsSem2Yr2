@@ -2,8 +2,7 @@ package Quotation;
 
 public interface QuoteState {
 
-    //Different states expected of a quote
-    //With( Applicant, Supervisor, Manager) - Rejected, Policy
+    // Defines the actions which will be available to all states the quote can be in
 
     void climb();
 

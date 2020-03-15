@@ -23,13 +23,13 @@ public class ManagerState implements QuoteState {
         quote.setOwner(quote.getBroker());
         quote.setOwner(quote.getBroker().supervisor);
         quote.setStatus("REJECTED");
-        quote.setQuoteState(quote.getApplicantState());
+        quote.setQuoteState("A");
     }
 
     @Override
     public void accept() {
         quote.setStatus("APPROVED");
-        quote.setQuoteState(quote.getPolicyState());
+        quote.setQuoteState("P");
     }
 
 }

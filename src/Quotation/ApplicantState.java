@@ -19,7 +19,7 @@ public class ApplicantState implements QuoteState {
     public void submit() {
         quote.setOwner(quote.getBroker().supervisor);
         quote.setStatus("PENDING");
-        quote.setQuoteState(quote.getSupervisorState());
+        quote.setQuoteState("S");
     }
 
     @Override
