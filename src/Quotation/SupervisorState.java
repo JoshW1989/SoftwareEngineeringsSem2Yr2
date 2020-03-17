@@ -10,13 +10,15 @@ public class SupervisorState implements QuoteState  {
 
     @Override
     public void climb() {
-        quote.setOwner(quote.getBroker().manager);
+        //TODO this should actually escelate to the manager quote.setOwner(quote.getBroker().manager);
+        quote.setOwner(quote.getBroker().getSupervisor());
         quote.setQuoteState("M");
     }
 
     @Override
     public void submit() {
         // Do nothing, applicants can't submit quotes
+        System.out.println("REF 2: can't submit an already submitted quote\n");
     }
 
     @Override

@@ -21,7 +21,7 @@ public class ManagerState implements QuoteState {
     @Override
     public void reject() {
         quote.setOwner(quote.getBroker());
-        quote.setOwner(quote.getBroker().supervisor);
+        quote.setOwner(quote.getBroker().getSupervisor());
         quote.setStatus("REJECTED");
         quote.setQuoteState("A");
     }

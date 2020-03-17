@@ -1,5 +1,7 @@
 package Quotation;
 
+import Users.User;
+
 public class Quote {
 
     private QuoteState currentState;
@@ -22,7 +24,7 @@ public class Quote {
 
     }
 
-    // Used to set the current state of the quote
+    // Used to set the current state of the quote - the state defines how method calls interact with the object
     void setQuoteState(String type) {
         switch(type) {
             case "A":
@@ -41,21 +43,24 @@ public class Quote {
     }
 
     //TODO insert validation of user permissions here
-    public void climb() {
-        currentState.climb();
+    public void actionQuote (String action) {
+        switch(action) {
+            case "climb":
+                currentState.climb();
+                break;
+            case "submit":
+                currentState.submit();
+                break;
+            case "reject":
+                currentState.reject();
+                break;
+            case "accept":
+                currentState.accept();
+                break;
+        }
     }
 
-    public void submit() {
-        currentState.submit();
-    }
 
-    public void reject() {
-        currentState.reject();
-    }
-
-    public void accept() {
-        currentState.accept();
-    }
 
 
     public int getZone() { return zone;}
