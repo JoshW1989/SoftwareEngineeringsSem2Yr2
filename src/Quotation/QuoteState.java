@@ -4,12 +4,13 @@ public interface QuoteState {
 
     // Defines the actions which will be available to all states the quote can be in
 
-    void climb();
+    void climb(String climbReason);
 
     void submit();
 
-    void reject();
+    void reject(String rejectReason);
 
     void accept();
 
+    //String getQuoteState*(<)
 }

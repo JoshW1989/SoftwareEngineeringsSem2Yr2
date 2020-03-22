@@ -62,7 +62,11 @@ public abstract class User {
 
     public abstract Quote createQuote(int zone, String crop);
 
-    public abstract void modifyQuote(String command, Quote quote);
+    public abstract void climbQuote(Quote quote, String climbReason);
+    public abstract void submitQuote(Quote quote);
+    public abstract void acceptQuote(Quote quote);
+    public abstract void rejectQuote(Quote quote, String rejectReason);
+
 
 }
 

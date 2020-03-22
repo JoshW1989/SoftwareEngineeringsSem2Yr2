@@ -9,7 +9,7 @@ public class ManagerState implements QuoteState {
     }
 
     @Override
-    public void climb() {
+    public void climb(String climbReason) {
         // Do nothing, managers can't climb
     }
 
@@ -19,17 +19,16 @@ public class ManagerState implements QuoteState {
     }
 
     @Override
-    public void reject() {
+    public void reject(String rejectReason) {
         quote.setOwner(quote.getBroker());
-        quote.setOwner(quote.getBroker().getSupervisor());
         quote.setStatus("REJECTED");
-        quote.setQuoteState("A");
+        quote.setQuoteState(new ApplicantState(quote));
     }
 
     @Override
     public void accept() {
         quote.setStatus("APPROVED");
-        quote.setQuoteState("P");
+        quote.setQuoteState(new PolicyState(quote));
     }
 
 }

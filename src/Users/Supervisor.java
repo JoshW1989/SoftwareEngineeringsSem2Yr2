@@ -25,12 +25,23 @@ public class Supervisor extends User {
         quote.setCrop(crop);
         quote.setBroker(this);
 
-
         return quote;
     }
 
-    public void modifyQuote(String command, Quote quote) {
-        quote.actionQuote(command);
+    public void climbQuote( Quote quote, String climbReason) {
+        quote.climbQuote(climbReason);
+    }
+
+    public void submitQuote(Quote quote) {
+        quote.submitQuote();
+    }
+
+    public void acceptQuote(Quote quote) {
+        quote.acceptQuote();
+    }
+
+    public void rejectQuote( Quote quote, String rejectReason) {
+        quote.rejectQuote(rejectReason);
     }
 
 }

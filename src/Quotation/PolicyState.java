@@ -9,7 +9,7 @@ public class PolicyState implements QuoteState {
     }
 
     @Override
-    public void climb() {
+    public void climb(String climbReason) {
         // Do nothing, policy is final and cannot be modified
     }
 
@@ -19,7 +19,7 @@ public class PolicyState implements QuoteState {
     }
 
     @Override
-    public void reject() {
+    public void reject(String rejectReason) {
         // Do nothing, policy is final and cannot be modified
     }
 

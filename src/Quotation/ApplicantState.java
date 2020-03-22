@@ -11,7 +11,7 @@ public class ApplicantState implements QuoteState {
     }
 
     @Override
-    public void climb() {
+    public void climb(String climbReason) {
         // Do nothing, applicants can't climb
     }
 
@@ -19,19 +19,12 @@ public class ApplicantState implements QuoteState {
     public void submit() {
         quote.setOwner(quote.getBroker().getSupervisor());
         quote.setStatus("PENDING");
-        quote.setQuoteState("S");
-
-
-        System.out.println("REF 1: Current state is applicant state");
-        System.out.println("REF 1: Set quote status to pending");
-        System.out.println("REF 1: Set the owner to the applicants supervisor - this is for control e.g only the current owner can interact");
-        System.out.println("REF 1: Set the quote state to Supervisor state. Next time an action on the quote is performed e.g climb, it will perform the action defined in the SupervisorState interface class");
-        System.out.println("\n");
+        quote.setQuoteState(new SupervisorState(quote));
     }
 
     @Override
-    public void reject() {
-        // Do nothing, applicants can't reject
+    public void reject(String rejectReason) {
+        quote.setStatus("REJECTED");
     }
 
     @Override

@@ -1,6 +1,7 @@
 package Quotation;
 
 import Users.User;
+import Zones.Zone;
 
 public class Quote {
 
@@ -25,41 +26,25 @@ public class Quote {
     }
 
     // Used to set the current state of the quote - the state defines how method calls interact with the object
-    void setQuoteState(String type) {
-        switch(type) {
-            case "A":
-                currentState = new ApplicantState(this);
-                break;
-            case "S":
-                currentState = new SupervisorState(this);
-                break;
-            case "M":
-                currentState = new ManagerState(this);
-                break;
-            case "P":
-                currentState = new PolicyState(this);
-                break;
-        }
+
+    //possibly have state manager class to stickto SOLID principles
+    void setQuoteState(QuoteState newState) {
+        currentState = newState;
     }
 
     //TODO insert validation of user permissions here
-    public void actionQuote (String action) {
-        switch(action) {
-            case "climb":
-                currentState.climb();
-                break;
-            case "submit":
-                currentState.submit();
-                break;
-            case "reject":
-                currentState.reject();
-                break;
-            case "accept":
-                currentState.accept();
-                break;
-        }
+    public void climbQuote (String reason) {
+        currentState.climb(reason);
     }
-
+    public void submitQuote () {
+        currentState.submit();
+    }
+    public void acceptQuote () {
+        currentState.accept();
+    }
+    public void rejectQuote (String reason) {
+        currentState.reject(reason);
+    }
 
 
 

@@ -5,8 +5,6 @@ import Quotation.*;
 public class Broker extends User {
 
 
-
-
     //Constructor
     public Broker(String company, String name, String email, String quickCall, int userId, String password, double commission, User supervisor)
     {
@@ -36,9 +34,19 @@ public class Broker extends User {
         return quote;
     }
 
-    public void modifyQuote(String command, Quote quote) {
-        quote.actionQuote(command);
+    public void climbQuote( Quote quote, String climbReason) {
+        quote.climbQuote(climbReason);
     }
 
+    public void submitQuote(Quote quote) {
+        quote.submitQuote();
+    }
 
+    public void acceptQuote(Quote quote) {
+        quote.acceptQuote();
+    }
+
+    public void rejectQuote( Quote quote, String rejectReason) {
+        quote.rejectQuote(rejectReason);
+    }
 }

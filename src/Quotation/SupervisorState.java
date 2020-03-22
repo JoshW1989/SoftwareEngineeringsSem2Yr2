@@ -9,10 +9,10 @@ public class SupervisorState implements QuoteState  {
     }
 
     @Override
-    public void climb() {
+    public void climb(String climbReason) {
         //TODO this should actually escelate to the manager quote.setOwner(quote.getBroker().manager);
         quote.setOwner(quote.getBroker().getSupervisor());
-        quote.setQuoteState("M");
+        quote.setQuoteState(new ManagerState(quote));
     }
 
     @Override
@@ -22,15 +22,15 @@ public class SupervisorState implements QuoteState  {
     }
 
     @Override
-    public void reject() {
+    public void reject(String rejectReason) {
         quote.setOwner(quote.getBroker());
         quote.setStatus("REJECTED");
-        quote.setQuoteState("A");
+        quote.setQuoteState(new ApplicantState(quote));
     }
 
     @Override
     public void accept() {
         quote.setStatus("APPROVED");
-        quote.setQuoteState("P");
+        quote.setQuoteState(new PolicyState(quote));
     }
 }
