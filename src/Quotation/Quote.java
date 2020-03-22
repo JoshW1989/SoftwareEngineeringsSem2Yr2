@@ -1,7 +1,6 @@
 package Quotation;
 
 import Users.User;
-import Zones.Zone;
 
 public class Quote {
 

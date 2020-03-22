@@ -10,6 +10,15 @@ public class ActionFactory {
         if (action == "climb") {
             return new ClimbAction(quote, user);
         }
+        if (action == "accept") {
+            return new AcceptAction(quote, user);
+        }
+        if (action == "reject") {
+            return new RejectAction(quote, user);
+        }
+        if (action == "submit") {
+            return new SubmitAction(quote, user);
+        }
 
         return null;
     }
