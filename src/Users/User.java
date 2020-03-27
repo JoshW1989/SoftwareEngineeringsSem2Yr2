@@ -13,6 +13,9 @@ public abstract class User {
     private String password;
     private double commission;
     private User supervisor;
+    private String role;
+    private int zone;
+    private boolean canRequest;
 
     //Getters & Setters
     public String getCompany() { return company; }
@@ -39,6 +42,15 @@ public abstract class User {
     public double getCommission() { return commission; }
     public void setCommission(double commission) { this.commission = commission; }
 
+    public String getRole() { return role; }
+    public void setRole(String newRole) { this.role = newRole; }
+
+    public int getZone() { return zone; }
+    public void setZone(int newZone) { this.zone = newZone; }
+
+    public boolean getCanRequest() { return canRequest; }
+    public void setCanRequest(boolean newCanRequest) { this.canRequest = newCanRequest; }
+
     //Constructor
     public User(String company, String name, String email, String quickCall, int userId, String password, double commission)
     {
@@ -48,6 +60,7 @@ public abstract class User {
         this.quickCall = quickCall;
         this.userId = userId;
         this.password = password;
+        this.role = role;
 
         if (company == "VCA" || company == "vca")
         {
@@ -59,13 +72,6 @@ public abstract class User {
             this.commission = commission;
         }
     }
-
-    public abstract Quote createQuote(int zone, String crop);
-
-    public abstract void climbQuote(Quote quote, String climbReason);
-    public abstract void submitQuote(Quote quote);
-    public abstract void acceptQuote(Quote quote);
-    public abstract void rejectQuote(Quote quote, String rejectReason);
 
 
 }

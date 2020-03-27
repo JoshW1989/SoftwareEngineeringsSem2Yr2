@@ -5,12 +5,8 @@ import Users.User;
 
 public abstract class UserAction{
 
-    private boolean validated = false;
     private Quote actionQuote;
     private User requester;
-
-    public boolean getValidated() { return validated;}
-    public void setValidated(boolean newValidated) {validated = newValidated;}
 
     public Quote getActionQuote() { return actionQuote;}
     public void setActionQuote(Quote newQuote) {actionQuote = newQuote;}
@@ -25,7 +21,7 @@ public abstract class UserAction{
     }
 
     public void execute(String reason) {}
+    public boolean validate() {return true;}
 
-    public void validate(){}
 
 }

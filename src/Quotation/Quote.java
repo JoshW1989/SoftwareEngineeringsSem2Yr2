@@ -6,8 +6,6 @@ public class Quote {
 
     private QuoteState currentState;
 
-    //TODO only implement these when needed
-
     private int zone;
     private String crop;
     private String rejectReason;
@@ -16,10 +14,12 @@ public class Quote {
     private User broker;
     private User owner;
 
-    public Quote() {
+    public Quote(User user, String crop, int zone) {
 
-        //TODO build constructor fully
-        //TODO make the quote generation algorhythm that pattern which hides what alogrhtym performs the function
+        setZone(zone);
+        setCrop(crop);
+        setBroker(user);
+        setOwner(user.getSupervisor());
         currentState = new ApplicantState(this);
 
     }

@@ -10,14 +10,22 @@ public class RejectAction extends UserAction {
     }
 
     public void execute(String reason){
-        this.validate();
-        if (this.getValidated()){
+        if (this.validate()){
             getActionQuote().rejectQuote(reason);
         }
     }
 
-    public void validate(){
+    public boolean validate(){
 
+        if (getRequester().getRole() == "manager") {
+            return true;
+        }
+        else if (getRequester().getRole() == "supervisor" & getRequester().getZone() == getActionQuote().getZone()) {
+            return true;
+        }
+        else {
+            return false;
+        }
         // check that the requester is a supervisor from the relevant zone or a manager
         // return true if so
 

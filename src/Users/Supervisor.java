@@ -5,43 +5,24 @@ import java.util.ArrayList;
 
 public class Supervisor extends User {
 
-    //private ArrayList<User> users;
+    private ArrayList<User> users;
 
     //Constructor
-    public Supervisor(String company, String name, String email, String quickCall, int userId, String password, double commission)
+
+    public Supervisor(String company, String name, String email, String quickCall, int userId, String password,
+                      double commission, int zone, boolean request)
     {
         super(company, name, email, quickCall, userId, password, commission);
+        //validate to ensure that the user is a supervisor.
         setSupervisor(this);
+        setRole("supervisor");
+        setZone(zone);
+        setCanRequest(request);
         //users = new ArrayList<User>();
     }
 
-    @Override
-    public Quote createQuote(int zone, String crop)
-    {
-
-        Quote quote = new Quote();
-
-        quote.setZone(zone);
-        quote.setCrop(crop);
-        quote.setBroker(this);
-
-        return quote;
-    }
-
-    public void climbQuote( Quote quote, String climbReason) {
-        quote.climbQuote(climbReason);
-    }
-
-    public void submitQuote(Quote quote) {
-        quote.submitQuote();
-    }
-
-    public void acceptQuote(Quote quote) {
-        quote.acceptQuote();
-    }
-
-    public void rejectQuote( Quote quote, String rejectReason) {
-        quote.rejectQuote(rejectReason);
+    public void addUser(User user) {
+        users.add(user);
     }
 
 }

@@ -10,16 +10,18 @@ public class SubmitAction extends UserAction {
     }
 
     public void execute(String reason) {
-        this.validate();
-        if (this.getValidated()) {
+
+        if (this.validate()) {
+            System.out.println("submitted");
             getActionQuote().submitQuote();
         }
     }
 
-    public void validate() {
-
-        // check that the person requesting has permissions to request a quote
-        // return true if so
+    public boolean validate() {
+        System.out.println(getRequester().getUserId());
+        System.out.println(getActionQuote().getBroker().getUserId());
+        // Checks that the person performing an action is the quotes broker
+        return (getRequester().getUserId() == getActionQuote().getBroker().getUserId());
 
     }
 }

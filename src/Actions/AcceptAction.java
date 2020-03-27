@@ -10,14 +10,19 @@ public class AcceptAction extends UserAction {
     }
 
     public void execute(){
-        this.validate();
-        if (this.getValidated()){
+        if (this.validate()){
             getActionQuote().acceptQuote();
         }
     }
 
-    public void validate(){
-
+    public boolean validate(){
+        if (getRequester().getRole() == "supervisor") {
+            if(getRequester().getZone() == getActionQuote().getZone()) {
+                return true;
+            }
+        }
+        //THIS WONT WORK
+        return false;
         // check that the requester is a supervisor from the relevant zone or a manager
         // return true if so
 
