@@ -1,5 +1,6 @@
 package Quotation;
 
+import Users.Supervisor;
 import Users.User;
 
 public class Quote {
@@ -12,14 +13,13 @@ public class Quote {
     private String climbReason;
     private String status;
     private User broker;
-    private User owner;
+    private User supervisor;
 
     public Quote(User user, String crop, int zone) {
 
         setZone(zone);
         setCrop(crop);
         setBroker(user);
-        setOwner(user.getSupervisor());
         currentState = new ApplicantState(this);
 
     }
@@ -32,8 +32,8 @@ public class Quote {
     }
 
     //TODO insert validation of user permissions here
-    public void climbQuote (String reason) {
-        currentState.climb(reason);
+    public void climbQuote (String reason, User user) {
+        currentState.climb(reason, user);
     }
     public void submitQuote () {
         currentState.submit();
@@ -65,8 +65,8 @@ public class Quote {
     public User getBroker() { return broker;}
     public void setBroker(User newBroker) {broker = newBroker;}
 
-    public User getOwner() { return owner;}
-    public void setOwner(User newOwner) {owner = newOwner;}
+    public User getSupervisor() { return supervisor;}
+    public void setSupervisor(User newSupervisor) {supervisor = newSupervisor;}
 
 
 }

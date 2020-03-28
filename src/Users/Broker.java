@@ -7,18 +7,13 @@ public class Broker extends User {
 
     //Constructor
 
-    public Broker(String company, String name, String email, String quickCall, int userId, String password, double commission, User supervisor)
+    public Broker(String company, String name, String email, String quickCall, int userId, String password, double commission)
     {
         super(company, name, email, quickCall, userId, password, commission);
-        setSupervisor(supervisor);
-        setRole("user");
+        setRole("broker");
         setZone(0);
         setCanRequest(true);
 
     }
-
-    //Broker creates Insurance Quote
-    //Return type is Quote
-    //Quote instance and Quote data passed in as parameters
 
 }

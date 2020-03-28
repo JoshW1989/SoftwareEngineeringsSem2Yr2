@@ -1,4 +1,6 @@
 package Quotation;
+import Actions.UserAction;
+import Users.User;
 
 public class SupervisorState implements QuoteState  {
 
@@ -9,21 +11,21 @@ public class SupervisorState implements QuoteState  {
     }
 
     @Override
-    public void climb(String climbReason) {
+    public void climb(String climbReason, User supervisor) {
         //TODO this should actually escelate to the manager quote.setOwner(quote.getBroker().manager);
-        quote.setOwner(quote.getBroker().getSupervisor());
+        System.out.println("climbed in supervisor state");
+        quote.setClimbReason(climbReason);
+        quote.setSupervisor(supervisor);
         quote.setQuoteState(new ManagerState(quote));
     }
 
     @Override
     public void submit() {
         // Do nothing, applicants can't submit quotes
-        System.out.println("REF 2: can't submit an already submitted quote\n");
     }
 
     @Override
     public void reject(String rejectReason) {
-        quote.setOwner(quote.getBroker());
         quote.setStatus("REJECTED");
         quote.setQuoteState(new ApplicantState(quote));
     }

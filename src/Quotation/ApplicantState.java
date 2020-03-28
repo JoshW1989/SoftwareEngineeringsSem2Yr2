@@ -1,5 +1,7 @@
 package Quotation;
 
+import Users.User;
+
 public class ApplicantState implements QuoteState {
 
     // Initial state of a quote. The applicant controls the process flow
@@ -11,13 +13,12 @@ public class ApplicantState implements QuoteState {
     }
 
     @Override
-    public void climb(String climbReason) {
+    public void climb(String climbReason, User supervisor) {
         // Do nothing, applicants can't climb
     }
 
     @Override
     public void submit() {
-        quote.setOwner(quote.getBroker().getSupervisor());
         quote.setStatus("PENDING");
         quote.setQuoteState(new SupervisorState(quote));
     }

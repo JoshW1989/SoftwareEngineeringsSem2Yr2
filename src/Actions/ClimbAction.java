@@ -12,13 +12,20 @@ public class ClimbAction extends UserAction {
 
     public void execute(String reason){
         if (this.validate()){
-            getActionQuote().climbQuote(reason);
+            getActionQuote().climbQuote(reason, getRequester());
         }
     }
 
     public boolean validate(){
-        System.out.println("got here");
-        return getRequester().getRole() == "supervisor";
+
+        boolean valid = false;
+
+        if (getRequester().getRole() == "supervisor") {
+            if(getRequester().getZone() == getActionQuote().getZone()) {
+                valid = true;
+            }
+        }
+        return valid;
 
         // check that the requester is a supervisor
         //FROM RELEVANT ZONE

@@ -5,6 +5,8 @@ import Users.User;
 
 public class RejectAction extends UserAction {
 
+
+
     public RejectAction (Quote quote, User user) {
         super(quote, user);
     }
@@ -15,17 +17,19 @@ public class RejectAction extends UserAction {
         }
     }
 
-    public boolean validate(){
+    public boolean validate() {
+
+        boolean validated = false;
 
         if (getRequester().getRole() == "manager") {
-            return true;
+            if (getRequester().checkEmployee(getActionQuote().getSupervisor().getUserId())) {
+                validated = true;
+                System.out.println("id's match xxxx");
+            }
+        } else if (getRequester().getRole() == "supervisor" & getRequester().getZone() == getActionQuote().getZone()) {
+            validated = true;
         }
-        else if (getRequester().getRole() == "supervisor" & getRequester().getZone() == getActionQuote().getZone()) {
-            return true;
-        }
-        else {
-            return false;
-        }
+        return validated;
         // check that the requester is a supervisor from the relevant zone or a manager
         // return true if so
 

@@ -1,5 +1,7 @@
 package Quotation;
 
+import Users.User;
+
 public class ManagerState implements QuoteState {
 
     Quote quote;
@@ -9,7 +11,7 @@ public class ManagerState implements QuoteState {
     }
 
     @Override
-    public void climb(String climbReason) {
+    public void climb(String climbReason, User supervisor) {
         // Do nothing, managers can't climb
     }
 
@@ -20,13 +22,15 @@ public class ManagerState implements QuoteState {
 
     @Override
     public void reject(String rejectReason) {
-        quote.setOwner(quote.getBroker());
+        quote.setClimbReason("");
         quote.setStatus("REJECTED");
+        quote.setRejectReason(rejectReason);
         quote.setQuoteState(new ApplicantState(quote));
     }
 
     @Override
     public void accept() {
+        quote.setClimbReason("");
         quote.setStatus("APPROVED");
         quote.setQuoteState(new PolicyState(quote));
     }

@@ -1,5 +1,7 @@
 package Quotation;
 
+import Users.User;
+
 public class PolicyState implements QuoteState {
 
     private Quote quote;
@@ -9,7 +11,7 @@ public class PolicyState implements QuoteState {
     }
 
     @Override
-    public void climb(String climbReason) {
+    public void climb(String climbReason, User supervisor) {
         // Do nothing, policy is final and cannot be modified
     }
 

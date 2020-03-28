@@ -2,6 +2,8 @@ package Users;
 
 import Quotation.Quote;
 
+import java.util.ArrayList;
+
 public abstract class User {
 
     //Attributes
@@ -12,17 +14,16 @@ public abstract class User {
     private int userId;
     private String password;
     private double commission;
-    private User supervisor;
     private String role;
     private int zone;
     private boolean canRequest;
+    public ArrayList<User> employees;
+
+
 
     //Getters & Setters
     public String getCompany() { return company; }
     public void setCompany(String company) { this.company = company; }
-
-    public User getSupervisor() { return supervisor; }
-    public void setSupervisor(User supervisor) { this.supervisor = supervisor; }
 
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
@@ -51,6 +52,8 @@ public abstract class User {
     public boolean getCanRequest() { return canRequest; }
     public void setCanRequest(boolean newCanRequest) { this.canRequest = newCanRequest; }
 
+
+
     //Constructor
     public User(String company, String name, String email, String quickCall, int userId, String password, double commission)
     {
@@ -61,6 +64,7 @@ public abstract class User {
         this.userId = userId;
         this.password = password;
         this.role = role;
+        employees = new ArrayList<User>();
 
         if (company == "VCA" || company == "vca")
         {
@@ -73,6 +77,28 @@ public abstract class User {
         }
     }
 
+
+    public void addEmp(User employee) {
+        throw new UnsupportedOperationException();
+    }
+
+    public void removeEmp(User employee) {
+        throw new UnsupportedOperationException();
+    }
+
+    public boolean checkEmployee(int id) {
+
+        boolean hasEmployee = false;
+
+        for (User x: employees) {
+            if (x.getUserId() == id) {
+                hasEmployee = true;
+            }
+        }
+
+        return hasEmployee;
+
+    }
 
 }
 

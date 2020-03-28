@@ -2,14 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3de446c1-20c3-4f62-849b-61130cf1a4b3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Users/Manager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Software Engineering 2020 Semester 2/Actions/AcceptAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Software Engineering 2020 Semester 2/Actions/AcceptAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Software Engineering 2020 Semester 2/Quotation/ManagerState.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Software Engineering 2020 Semester 2/Quotation/ManagerState.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Software Engineering 2020 Semester 2/Quotation/SupervisorState.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Software Engineering 2020 Semester 2/Quotation/SupervisorState.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Actions/AcceptAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Actions/AcceptAction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Actions/ClimbAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Actions/ClimbAction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Actions/RejectAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Actions/RejectAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Actions/SubmitAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Actions/SubmitAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Actions/UserAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Actions/UserAction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quotation/ApplicantState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quotation/ApplicantState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quotation/ManagerState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quotation/ManagerState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quotation/PolicyState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quotation/PolicyState.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Quotation/Quote.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quotation/Quote.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quotation/QuoteState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quotation/QuoteState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quotation/SupervisorState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quotation/SupervisorState.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Users/Broker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Broker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Users/Supervisor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Supervisor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Users/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/User.java" afterDir="false" />
@@ -22,8 +29,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -87,6 +94,7 @@
       <workItem from="1584469645377" duration="36883000" />
       <workItem from="1584889268897" duration="11141000" />
       <workItem from="1585342170567" duration="7621000" />
+      <workItem from="1585396950644" duration="16627000" />
     </task>
     <servers />
   </component>
@@ -115,29 +123,52 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="277" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1584012255857" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1585349798124">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1585421647836">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585349798124" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1585349798123">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585421647836" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1585421647836">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585349798123" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1585349798123">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585421647836" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1585421647836">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585349798123" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1585349798124">
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585421647836" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1585421647836">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585349798124" />
-    <state x="668" y="347" key="com.intellij.ide.util.TipDialog" timestamp="1585342171075">
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585421647836" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1585420410811">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="668" y="347" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585342171075" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585420410811" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1585420410811">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585420410811" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1585420410811">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585420410811" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1585420410811">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585420410811" />
+    <state x="668" y="347" key="com.intellij.ide.util.TipDialog" timestamp="1585396951624">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="668" y="347" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585396951624" />
+    <state x="702" y="154" key="refactoring.ChangeSignatureDialog" timestamp="1585417562439">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="702" y="154" key="refactoring.ChangeSignatureDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585417562439" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1584560895289">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1584560895289" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/032720$Main.ic" NAME="Main Coverage Results" MODIFIED="1585421020799" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

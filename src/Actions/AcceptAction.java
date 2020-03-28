@@ -16,16 +16,15 @@ public class AcceptAction extends UserAction {
     }
 
     public boolean validate(){
+
+        boolean valid = false;
+
         if (getRequester().getRole() == "supervisor") {
             if(getRequester().getZone() == getActionQuote().getZone()) {
-                return true;
+                valid = true;
             }
         }
-        //THIS WONT WORK
-        return false;
-        // check that the requester is a supervisor from the relevant zone or a manager
-        // return true if so
-
+        return valid;
     }
 
 }
