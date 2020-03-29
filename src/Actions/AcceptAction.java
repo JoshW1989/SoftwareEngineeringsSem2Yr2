@@ -17,14 +17,18 @@ public class AcceptAction extends UserAction {
 
     public boolean validate(){
 
-        boolean valid = false;
+        boolean validated = false;
 
-        if (getRequester().getRole() == "supervisor") {
-            if(getRequester().getZone() == getActionQuote().getZone()) {
-                valid = true;
+        if (getRequester().getRole() == "manager") {
+            if (getRequester().checkEmployee(getActionQuote().getSupervisorID())) {
+                validated = true;
             }
+        } else if (getRequester().getRole() == "supervisor" &
+                getRequester().getZone() == getActionQuote().getZone()) {
+            validated = true;
         }
-        return valid;
+        return validated;
+
     }
 
 }

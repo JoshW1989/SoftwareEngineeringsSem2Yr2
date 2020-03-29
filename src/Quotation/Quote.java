@@ -68,5 +68,7 @@ public class Quote {
     public User getSupervisor() { return supervisor;}
     public void setSupervisor(User newSupervisor) {supervisor = newSupervisor;}
 
+    public int getSupervisorID() { return supervisor.getUserId();}
+
 
 }

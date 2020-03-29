@@ -18,8 +18,6 @@ public class SubmitAction extends UserAction {
     }
 
     public boolean validate() {
-        System.out.println(getRequester().getUserId());
-        System.out.println(getActionQuote().getBroker().getUserId());
         // Checks that the person performing an action is the quotes broker
         return (getRequester().getUserId() == getActionQuote().getBroker().getUserId());
 

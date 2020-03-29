@@ -19,6 +19,8 @@ public class Main {
         User broker1 = new Broker("VCA", "broker 1", "broker@vca.com", "987654321", 98009, "password", 5.0);
         User broker2 = new Broker("VCA", "broker 2", "broker@vca.com", "987654321", 98009, "password", 5.0);
 
+        broker1.addEmp(broker2);
+
         manager1.addEmp(supervisor);
 
         Quote usersQuote = new Quote(broker, "Barley", 1);

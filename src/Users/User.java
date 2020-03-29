@@ -19,8 +19,6 @@ public abstract class User {
     private boolean canRequest;
     public ArrayList<User> employees;
 
-
-
     //Getters & Setters
     public String getCompany() { return company; }
     public void setCompany(String company) { this.company = company; }
@@ -51,8 +49,6 @@ public abstract class User {
 
     public boolean getCanRequest() { return canRequest; }
     public void setCanRequest(boolean newCanRequest) { this.canRequest = newCanRequest; }
-
-
 
     //Constructor
     public User(String company, String name, String email, String quickCall, int userId, String password, double commission)

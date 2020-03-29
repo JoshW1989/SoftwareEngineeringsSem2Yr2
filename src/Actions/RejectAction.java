@@ -22,11 +22,11 @@ public class RejectAction extends UserAction {
         boolean validated = false;
 
         if (getRequester().getRole() == "manager") {
-            if (getRequester().checkEmployee(getActionQuote().getSupervisor().getUserId())) {
+            if (getRequester().checkEmployee(getActionQuote().getSupervisorID())) {
                 validated = true;
-                System.out.println("id's match xxxx");
             }
-        } else if (getRequester().getRole() == "supervisor" & getRequester().getZone() == getActionQuote().getZone()) {
+        } else if (getRequester().getRole() == "supervisor" &
+                getRequester().getZone() == getActionQuote().getZone()) {
             validated = true;
         }
         return validated;
