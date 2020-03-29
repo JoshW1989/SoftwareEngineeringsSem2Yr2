@@ -17,7 +17,6 @@ public abstract class User {
     private String role;
     private int zone;
     private boolean canRequest;
-    public ArrayList<User> employees;
 
     //Getters & Setters
     public String getCompany() { return company; }
@@ -59,8 +58,7 @@ public abstract class User {
         this.quickCall = quickCall;
         this.userId = userId;
         this.password = password;
-        this.role = role;
-        employees = new ArrayList<User>();
+
 
         if (company == "VCA" || company == "vca")
         {
@@ -74,26 +72,8 @@ public abstract class User {
     }
 
 
-    public void addEmp(User employee) {
-        throw new UnsupportedOperationException();
-    }
-
-    public void removeEmp(User employee) {
-        throw new UnsupportedOperationException();
-    }
-
     public boolean checkEmployee(int id) {
-
-        boolean hasEmployee = false;
-
-        for (User x: employees) {
-            if (x.getUserId() == id) {
-                hasEmployee = true;
-            }
-        }
-
-        return hasEmployee;
-
+        throw new UnsupportedOperationException();
     }
 
 }

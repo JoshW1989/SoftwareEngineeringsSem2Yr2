@@ -1,6 +1,5 @@
 package Quotation;
 
-import Users.Supervisor;
 import Users.User;
 
 public class Quote {
