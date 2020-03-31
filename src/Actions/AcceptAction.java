@@ -10,7 +10,7 @@ public class AcceptAction extends UserAction {
         super(quote, user);
     }
 
-    public void execute() throws IncorrectQuoteStateError{
+    public void execute(String reason) throws IncorrectQuoteStateError{
         if (this.validate()){
             getActionQuote().acceptQuote();
         }
