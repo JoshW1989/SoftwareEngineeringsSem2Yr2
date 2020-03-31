@@ -24,6 +24,7 @@ public class SupervisorState implements QuoteState  {
 
     @Override
     public void reject(String rejectReason) {
+    	quote.setRejectReason(rejectReason);
         quote.setStatus("REJECTED");
         quote.setQuoteState(new ApplicantState(quote));
     }
