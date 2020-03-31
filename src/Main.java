@@ -26,17 +26,18 @@ public class Main {
 
         Quote usersQuote = new Quote(broker, "Barley", 1);
         
+        
 
         ActionFactory myFactory = new ActionFactory();
 
         UserAction usersubmits = myFactory.getAction(usersQuote, broker, "submit");
-        usersubmits.execute("");
+        //usersubmits.execute("");
 
         UserAction supervisorclimbs = myFactory.getAction(usersQuote, supervisor, "climb");
-        supervisorclimbs.execute("because");
+        //supervisorclimbs.execute("because");
 
         UserAction managerrejects = myFactory.getAction(usersQuote, manager1, "reject");
-        managerrejects.execute("because");
+       // managerrejects.execute("because");
     }
 
 }

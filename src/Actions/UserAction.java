@@ -1,5 +1,6 @@
 package Actions;
 
+import Quotation.IncorrectQuoteStateError;
 import Quotation.Quote;
 import Users.User;
 
@@ -20,7 +21,7 @@ public abstract class UserAction{
         setRequester(user);
     }
 
-    public void execute(String reason) {}
+    public void execute(String reason) throws IncorrectQuoteStateError {}
     public boolean validate() {return true;}
 
 

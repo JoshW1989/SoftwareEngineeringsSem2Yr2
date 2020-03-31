@@ -6,13 +6,13 @@ public interface QuoteState {
 
     // Defines the actions which will be available to all states the quote can be in
 
-    void climb(String climbReason, User supervisor);
+    void climb(String climbReason, User supervisor) throws IncorrectQuoteStateError;
 
     void submit();
 
     void reject(String rejectReason);
 
-    void accept();
+    void accept() throws IncorrectQuoteStateError;
 
     //String getQuoteState*(<)
 }

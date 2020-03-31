@@ -1,6 +1,7 @@
 package Quotation;
 
 import Users.User;
+import Users.WrongUserException;
 
 public class ApplicantState implements QuoteState {
 
@@ -13,8 +14,10 @@ public class ApplicantState implements QuoteState {
     }
 
     @Override
-    public void climb(String climbReason, User supervisor) {
+    public void climb(String climbReason, User supervisor) throws IncorrectQuoteStateError{
         // Do nothing, applicants can't climb
+    	throw new IncorrectQuoteStateError("Applicant State");
+    	
     }
 
     @Override
@@ -26,11 +29,14 @@ public class ApplicantState implements QuoteState {
     @Override
     //maybe change this
     public void reject(String rejectReason) {
-        quote.setStatus("REJECTED");
+        quote.setStatus("REJECTED BY BROKER");
     }
 
     @Override
-    public void accept() {
+    public void accept() throws IncorrectQuoteStateError{
         // Do nothing, applicants can't accept
+    	
+    	throw new IncorrectQuoteStateError("Applicant State");
+    	
     }
 }

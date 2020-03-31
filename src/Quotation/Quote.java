@@ -31,13 +31,13 @@ public class Quote {
     }
 
     //TODO insert validation of user permissions here
-    public void climbQuote (String reason, User user) {
+    public void climbQuote (String reason, User user) throws IncorrectQuoteStateError {
         currentState.climb(reason, user);
     }
     public void submitQuote () {
         currentState.submit();
     }
-    public void acceptQuote () {
+    public void acceptQuote () throws IncorrectQuoteStateError {
         currentState.accept();
     }
     public void rejectQuote (String reason) {
