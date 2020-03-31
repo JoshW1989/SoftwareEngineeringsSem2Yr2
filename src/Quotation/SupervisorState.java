@@ -12,15 +12,14 @@ public class SupervisorState implements QuoteState  {
 
     @Override
     public void climb(String climbReason, User supervisor) {
-        //TODO this should actually escelate to the manager quote.setOwner(quote.getBroker().manager);
         quote.setClimbReason(climbReason);
         quote.setSupervisor(supervisor);
         quote.setQuoteState(new ManagerState(quote));
     }
 
     @Override
-    public void submit() {
-        // Do nothing, applicants can't submit quotes
+    public void submit() throws IncorrectQuoteStateError {
+    	throw new IncorrectQuoteStateError("Supervisor State");
     }
 
     @Override

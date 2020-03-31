@@ -11,22 +11,22 @@ public class PolicyState implements QuoteState {
     }
 
     @Override
-    public void climb(String climbReason, User supervisor) {
-        // Do nothing, policy is final and cannot be modified
+    public void climb(String climbReason, User supervisor) throws IncorrectQuoteStateError {
+    	throw new IncorrectQuoteStateError("Policy State");
     }
 
     @Override
-    public void submit() {
-        // Do nothing, policy is final and cannot be modified
+    public void submit() throws IncorrectQuoteStateError {
+    	throw new IncorrectQuoteStateError("Policy State");
     }
 
     @Override
-    public void reject(String rejectReason) {
-        // Do nothing, policy is final and cannot be modified
+    public void reject(String rejectReason) throws IncorrectQuoteStateError {
+    	throw new IncorrectQuoteStateError("Policy State");
     }
 
     @Override
-    public void accept() {
-        // Do nothing, policy is final and cannot be modified
+    public void accept() throws IncorrectQuoteStateError {
+    	throw new IncorrectQuoteStateError("Policy State");
     }
 }

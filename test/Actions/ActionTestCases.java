@@ -4,11 +4,13 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import Quotation.IncorrectQuoteStateError;
 import Quotation.Quote;
 import Users.Broker;
 import Users.Manager;
 import Users.Supervisor;
 import Users.User;
+import Users.WrongUserException;
 import junit.framework.Assert;
 
 public class ActionTestCases {
