@@ -29,7 +29,7 @@ public class ApplicantState implements QuoteState {
     @Override
     //maybe change this
     public void reject(String rejectReason) {
-        quote.setStatus("REJECTED BY BROKER");
+        quote.setRejectReason("REJECTED BY BROKER");
     }
 
     @Override

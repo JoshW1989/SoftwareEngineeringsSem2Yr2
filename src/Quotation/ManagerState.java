@@ -11,13 +11,13 @@ public class ManagerState implements QuoteState {
     }
 
     @Override
-    public void climb(String climbReason, User supervisor) {
-        // Do nothing, managers can't climb
+    public void climb(String climbReason, User supervisor) throws IncorrectQuoteStateError {
+    	throw new IncorrectQuoteStateError("Manager State");   	
     }
 
     @Override
-    public void submit() {
-        // Do nothing, managers can't submit
+    public void submit() throws IncorrectQuoteStateError {
+    	throw new IncorrectQuoteStateError("Manager State");
     }
 
     @Override

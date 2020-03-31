@@ -8,9 +8,9 @@ public interface QuoteState {
 
     void climb(String climbReason, User supervisor) throws IncorrectQuoteStateError;
 
-    void submit();
+    void submit() throws IncorrectQuoteStateError;
 
-    void reject(String rejectReason);
+    void reject(String rejectReason) throws IncorrectQuoteStateError;;
 
     void accept() throws IncorrectQuoteStateError;
 

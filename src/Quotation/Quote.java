@@ -29,18 +29,19 @@ public class Quote {
     void setQuoteState(QuoteState newState) {
         currentState = newState;
     }
-
+    public QuoteState getQuoteState() {return currentState;}
+    
     //TODO insert validation of user permissions here
     public void climbQuote (String reason, User user) throws IncorrectQuoteStateError {
         currentState.climb(reason, user);
     }
-    public void submitQuote () {
+    public void submitQuote () throws IncorrectQuoteStateError {
         currentState.submit();
     }
     public void acceptQuote () throws IncorrectQuoteStateError {
         currentState.accept();
     }
-    public void rejectQuote (String reason) {
+    public void rejectQuote (String reason) throws IncorrectQuoteStateError {
         currentState.reject(reason);
     }
 

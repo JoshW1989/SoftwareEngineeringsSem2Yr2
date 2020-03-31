@@ -13,7 +13,6 @@ public class SupervisorState implements QuoteState  {
     @Override
     public void climb(String climbReason, User supervisor) {
         //TODO this should actually escelate to the manager quote.setOwner(quote.getBroker().manager);
-        System.out.println("climbed in supervisor state");
         quote.setClimbReason(climbReason);
         quote.setSupervisor(supervisor);
         quote.setQuoteState(new ManagerState(quote));

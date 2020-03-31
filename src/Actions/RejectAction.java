@@ -1,5 +1,6 @@
 package Actions;
 
+import Quotation.IncorrectQuoteStateError;
 import Quotation.Quote;
 import Users.User;
 
@@ -11,7 +12,7 @@ public class RejectAction extends UserAction {
         super(quote, user);
     }
 
-    public void execute(String reason){
+    public void execute(String reason) throws IncorrectQuoteStateError{
         if (this.validate()){
             getActionQuote().rejectQuote(reason);
         }
