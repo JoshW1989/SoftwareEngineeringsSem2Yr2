@@ -16,11 +16,8 @@ import Users.WrongUserException;
 public class ManagerStateTest {
 	
 	public User supervisor;
-	public Manager manager;
 	public Quote usersQuote;
-	public ActionFactory actionFactory;
-	public UserAction submit;
-	public UserAction climb;
+
 	
 	@Before
 	public void setUp() throws WrongUserException, IncorrectQuoteStateError {

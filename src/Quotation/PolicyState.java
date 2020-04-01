@@ -12,21 +12,21 @@ public class PolicyState implements QuoteState {
 
     @Override
     public void climb(String climbReason, User supervisor) throws IncorrectQuoteStateError {
-    	throw new IncorrectQuoteStateError("Policy State");
+    	throw new IncorrectQuoteStateError("Policy");
     }
 
     @Override
     public void submit() throws IncorrectQuoteStateError {
-    	throw new IncorrectQuoteStateError("Policy State");
+    	throw new IncorrectQuoteStateError("Policy");
     }
 
     @Override
     public void reject(String rejectReason) throws IncorrectQuoteStateError {
-    	throw new IncorrectQuoteStateError("Policy State");
+    	throw new IncorrectQuoteStateError("Policy");
     }
 
     @Override
     public void accept() throws IncorrectQuoteStateError {
-    	throw new IncorrectQuoteStateError("Policy State");
+    	throw new IncorrectQuoteStateError("Policy");
     }
 }

@@ -19,7 +19,7 @@ public class SupervisorState implements QuoteState  {
 
     @Override
     public void submit() throws IncorrectQuoteStateError {
-    	throw new IncorrectQuoteStateError("Supervisor State");
+    	throw new IncorrectQuoteStateError("Supervisor");
     }
 
     @Override

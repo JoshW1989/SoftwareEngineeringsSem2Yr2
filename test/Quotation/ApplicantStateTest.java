@@ -1,16 +1,12 @@
 package Quotation;
 
-import static org.junit.Assert.*;
-
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.BeforeClass;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
-import Actions.ActionFactory;
-import Actions.UserAction;
-import Users.Broker;
 import Users.Supervisor;
 import Users.User;
 
@@ -18,7 +14,6 @@ public class ApplicantStateTest {
 
 	public User supervisor;
 	public Quote usersQuote;
-	public ActionFactory actionFactory;
 	
 	@Before
 	public void setUp() {
@@ -36,6 +31,22 @@ public class ApplicantStateTest {
 		ApplicantState testState = new ApplicantState(usersQuote);
 
 		testState.climb("Climbed", supervisor);
+		
+	}
+	
+	@Rule
+	public ExpectedException expected = ExpectedException.none();
+	
+	@Test(expected = IncorrectQuoteStateError.class)
+	public void applicantClimbErrorMessageTest() throws IncorrectQuoteStateError {
+		
+		ApplicantState testState = new ApplicantState(usersQuote);
+
+		testState.climb("Climbed", supervisor);
+		
+		String expectedMessage = "This operation can not be performed while the quoute is in Applicant state";
+		
+		expected.expectMessage(expectedMessage);
 		
 	}
 	
@@ -79,7 +90,6 @@ public class ApplicantStateTest {
 	public void tearDown() {
 		supervisor = null;
 		usersQuote = null;
-		actionFactory = null;
 	}
 	
 	

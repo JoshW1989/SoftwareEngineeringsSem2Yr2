@@ -16,7 +16,7 @@ public class ApplicantState implements QuoteState {
     @Override
     public void climb(String climbReason, User supervisor) throws IncorrectQuoteStateError{
         // Do nothing, applicants can't climb
-    	throw new IncorrectQuoteStateError("Applicant State");
+    	throw new IncorrectQuoteStateError("Applicant");
     	
     }
 
