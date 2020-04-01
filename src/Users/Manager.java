@@ -12,8 +12,9 @@ public class Manager extends User{
                       double commission)
     {
         super(company, name, email, quickCall, userId, password, commission);
-        //validate to ensure that the user is a supervisor.
+
         setRole("manager");
+        setCanRequest(false);
         employees = new ArrayList<User>();
 
     }
