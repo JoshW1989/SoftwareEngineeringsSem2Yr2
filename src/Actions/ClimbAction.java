@@ -26,10 +26,6 @@ public class ClimbAction extends UserAction {
         }
         return false;
 
-        // check that the requester is a supervisor
-        //FROM RELEVANT ZONE
-        //return true if so
-
     }
 
 }
