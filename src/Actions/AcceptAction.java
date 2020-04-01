@@ -1,11 +1,14 @@
 package Actions;
 
 import Quotation.IncorrectQuoteStateError;
+import Quotation.ManagerState;
 import Quotation.Quote;
+import Quotation.SupervisorState;
 import Users.User;
 
 public class AcceptAction extends UserAction {
 
+	// Employee accepts the quote terms
     public AcceptAction (Quote quote, User user) {
         super(quote, user);
     }
@@ -18,18 +21,31 @@ public class AcceptAction extends UserAction {
 
     public boolean validate(){
 
-        boolean validated = false;
-
-        if (getRequester().getRole() == "manager") {
-            if (getRequester().checkEmployee(getActionQuote().getSupervisorID())) {
-                validated = true;
-            }
-        } else if (getRequester().getRole() == "supervisor" &
-                getRequester().getZone() == getActionQuote().getZone()) {
-            validated = true;
+        if (getActionQuote().getQuoteState() instanceof ManagerState) {
+        	return validateManager();
+        	
+        } else if (getActionQuote().getQuoteState() instanceof SupervisorState) {
+        	return validateSupervisor();
         }
-        return validated;
+        return false;
 
     }
-
+    
+    public boolean validateManager() {
+        if (getRequester().getRole() == "manager") {
+            if (getRequester().checkEmployee(getActionQuote().getSupervisorID())) {
+                return true;
+            }
+        }
+        return false;    
+    }
+    
+    public boolean validateSupervisor() {
+    	if (getRequester().getRole() == "supervisor" &
+                getRequester().getZone() == getActionQuote().getZone()) {
+            return true;
+    	}
+    	
+    	return false;
+    }
 }

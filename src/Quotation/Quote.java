@@ -13,12 +13,14 @@ public class Quote {
     private String status;
     private User broker;
     private User supervisor;
+    private double hectares;
 
-    public Quote(User user, String crop, int zone) {
+    public Quote(User user, String crop, int zone, double hectares) {
 
         setZone(zone);
         setCrop(crop);
         setBroker(user);
+        setHectares(hectares);
         currentState = new ApplicantState(this);
 
     }
@@ -69,6 +71,9 @@ public class Quote {
     public void setSupervisor(User newSupervisor) {supervisor = newSupervisor;}
 
     public int getSupervisorID() { return supervisor.getUserId();}
+
+	public double getHectares() {return hectares;}
+	public void setHectares(double hectares) {this.hectares = hectares;}
 
 
 }

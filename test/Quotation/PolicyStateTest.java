@@ -3,6 +3,7 @@ package Quotation;
 import static org.junit.Assert.*;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import Actions.ActionFactory;
@@ -13,39 +14,31 @@ import Users.User;
 import Users.WrongUserException;
 
 public class PolicyStateTest {
-
-
-	@Test(expected = IncorrectQuoteStateError.class)
-	public void policyAcceptQuoteErrorTest() throws IncorrectQuoteStateError{
 	
-		User supervisor = new Supervisor("vca", "John Smith", "broker@vca.com", "987654321", 98009, "password", 5.0, 1, true);
-		Quote usersQuote = new Quote(supervisor, "Barley", 1);
+	public User supervisor;
+	public Quote usersQuote;
+	public ActionFactory actionFactory;
+	public UserAction submit;
+	public UserAction accept;
+	
+	@Before
+	public void SetUp() throws IncorrectQuoteStateError {
+		supervisor = new Supervisor("vca", "John Smith", "broker@vca.com", "987654321", 98009, "password", 5.0, 1, true);
+		usersQuote = new Quote(supervisor, "Barley", 1, 52);
 		
-        ActionFactory actionFactory = new ActionFactory();
+        actionFactory = new ActionFactory();
 
-        UserAction submit = actionFactory.getAction(usersQuote, supervisor, "submit");
+        submit = actionFactory.getAction(usersQuote, supervisor, "submit");
         submit.execute("");
         
-        UserAction accept = actionFactory.getAction(usersQuote, supervisor, "accept");
-        accept.execute("Accepted quote");
-        
-        UserAction testAccept = actionFactory.getAction(usersQuote, supervisor, "accept");
-        testAccept.execute("");
+        accept = actionFactory.getAction(usersQuote, supervisor, "accept");
+        accept.execute("");
 	}
+
 	
 	@Test(expected = IncorrectQuoteStateError.class)
 	public void policyRejectQuoteErrorTest() throws IncorrectQuoteStateError{
 	
-		User supervisor = new Supervisor("vca", "John Smith", "broker@vca.com", "987654321", 98009, "password", 5.0, 1, true);
-		Quote usersQuote = new Quote(supervisor, "Barley", 1);
-		
-        ActionFactory actionFactory = new ActionFactory();
-
-        UserAction submit = actionFactory.getAction(usersQuote, supervisor, "submit");
-        submit.execute("");
-        
-        UserAction accept = actionFactory.getAction(usersQuote, supervisor, "accept");
-        accept.execute("");
         
         UserAction testReject = actionFactory.getAction(usersQuote, supervisor, "reject");
         testReject.execute("Rejecting policy");
@@ -54,17 +47,7 @@ public class PolicyStateTest {
 	@Test(expected = IncorrectQuoteStateError.class)
 	public void policySubmitQuoteErrorTest() throws IncorrectQuoteStateError{
 	
-		User supervisor = new Supervisor("vca", "John Smith", "broker@vca.com", "987654321", 98009, "password", 5.0, 1, true);
-		Quote usersQuote = new Quote(supervisor, "Barley", 1);
-		
-        ActionFactory actionFactory = new ActionFactory();
 
-        UserAction submit = actionFactory.getAction(usersQuote, supervisor, "submit");
-        submit.execute("");
-        
-        UserAction accept = actionFactory.getAction(usersQuote, supervisor, "accept");
-        accept.execute("");
-        
         UserAction testSubmit = actionFactory.getAction(usersQuote, supervisor, "submit");
         testSubmit.execute("");
 	}
@@ -72,16 +55,7 @@ public class PolicyStateTest {
 	@Test(expected = IncorrectQuoteStateError.class)
 	public void policyClimbQuoteErrorTest() throws IncorrectQuoteStateError{
 	
-		User supervisor = new Supervisor("vca", "John Smith", "broker@vca.com", "987654321", 98009, "password", 5.0, 1, true);
-		Quote usersQuote = new Quote(supervisor, "Barley", 1);
-		
-        ActionFactory actionFactory = new ActionFactory();
 
-        UserAction submit = actionFactory.getAction(usersQuote, supervisor, "submit");
-        submit.execute("");
-        
-        UserAction accept = actionFactory.getAction(usersQuote, supervisor, "accept");
-        accept.execute("");
         
         UserAction testClimb = actionFactory.getAction(usersQuote, supervisor, "climb");
         testClimb.execute("Climbing Policy");

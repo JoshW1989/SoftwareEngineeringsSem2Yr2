@@ -19,7 +19,7 @@ public class ActionTestCases {
 	public void testSubmitQuote() throws IncorrectQuoteStateError {
 		
 		User broker = new Broker("VCA", "Scott Neary", "B00381534@studentmail.uws.ac.uk", "123456789", 381534, "password", 5.0);
-		Quote quote = new Quote(broker, "Barley", 1);
+		Quote quote = new Quote(broker, "Barley", 1, 52);
 		ActionFactory myFactory = new ActionFactory();
 
 		UserAction usersubmits = myFactory.getAction(quote, broker, "submit");
@@ -37,7 +37,7 @@ public class ActionTestCases {
 		
 		User supervisor = new Supervisor("VCA", "Mr. Jeffrey Jordan", "jefferyjordan@vca.com", "123456789", 381534, "password", 5.0,1, true);
 		User broker = new Broker("VCA", "Scott Neary", "B00381534@studentmail.uws.ac.uk", "123456789", 381534, "password", 5.0);
-		Quote quote = new Quote(broker, "Barley", 1);
+		Quote quote = new Quote(broker, "Barley", 1, 52);
 
 		ActionFactory myFactory = new ActionFactory();
 
@@ -59,7 +59,7 @@ public class ActionTestCases {
 		
 		User supervisor = new Supervisor("VCA", "Mr. Jeffrey Jordan", "jefferyjordan@vca.com", "123456789", 381534, "password", 5.0, 1, true);
 		User broker = new Broker("VCA", "Scott Neary", "B00381534@studentmail.uws.ac.uk", "123456789", 381534, "password", 5.0);
-		Quote quote = new Quote(broker, "Barley", 1);
+		Quote quote = new Quote(broker, "Barley", 1, 52);
 
 		ActionFactory myFactory = new ActionFactory();
 
@@ -83,7 +83,7 @@ public class ActionTestCases {
 		Manager manager = new Manager("VCA", "Mr. Douglas Jackson", "douglasjackson@vca.com", "987654321", 98009, "password", 5.0);
 		User supervisor = new Supervisor("VCA", "Mr. Jeffrey Jordan", "jefferyjordan@vca.com", "123456789", 381534, "password", 5.0, 1, true);
 		User broker = new Broker("VCA", "Scott Neary", "B00381534@studentmail.uws.ac.uk", "123456789", 381534, "password", 5.0);
-		Quote quote = new Quote(broker, "Barley", 1);
+		Quote quote = new Quote(broker, "Barley", 1, 52);
 
 		manager.addEmp(supervisor);
 		
@@ -111,7 +111,7 @@ public class ActionTestCases {
 		Manager manager = new Manager("VCA", "Mr. Douglas Jackson", "douglasjackson@vca.com", "987654321", 98009, "password", 5.0);
 		User supervisor = new Supervisor("VCA", "Mr. Jeffrey Jordan", "jefferyjordan@vca.com", "123456789", 381534, "password", 5.0, 1, true);
 		User broker = new Broker("VCA", "Scott Neary", "B00381534@studentmail.uws.ac.uk", "123456789", 381534, "password", 5.0);
-		Quote quote = new Quote(broker, "Barley", 1);
+		Quote quote = new Quote(broker, "Barley", 1, 52);
 
 		manager.addEmp(supervisor);
 		
@@ -138,7 +138,7 @@ public class ActionTestCases {
 		
 		User supervisor = new Supervisor("VCA", "Mr. Maurice Pippen", "mauricepippen@vca.com", "2354", 390674, "password", 5.0, 2, true);
 		User broker = new Broker("VCA", "Scott Neary", "B00381534@studentmail.uws.ac.uk", "123456789", 381534, "password", 5.0);
-		Quote quote = new Quote(broker, "Barley", 3);
+		Quote quote = new Quote(broker, "Barley", 3, 52);
 
 		ActionFactory myFactory = new ActionFactory();
 

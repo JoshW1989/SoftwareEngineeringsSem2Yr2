@@ -3,6 +3,7 @@ package Quotation;
 import static org.junit.Assert.*;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import Actions.ActionFactory;
@@ -11,17 +12,28 @@ import Users.Supervisor;
 import Users.User;
 
 public class SupervisorStateTest {
+	
+	public User supervisor;
+	public Quote usersQuote;
+	public ActionFactory actionFactory;
+	public UserAction submit;
+	
+	@Before
+	public void SetUp() throws IncorrectQuoteStateError {
+		
+		supervisor = new Supervisor("vca", "John Smith", "broker@vca.com", "987654321", 98009, "password", 5.0, 1, true);
+		usersQuote = new Quote(supervisor, "Barley", 1, 52);
+		
+        actionFactory = new ActionFactory();
+
+        submit = actionFactory.getAction(usersQuote, supervisor, "submit");
+        submit.execute("");
+		
+	}
 
 	@Test
 	public void supervisorClimbQuoteSupervisorChangeTest() throws IncorrectQuoteStateError {
 	
-		User supervisor = new Supervisor("vca", "John Smith", "broker@vca.com", "987654321", 98009, "password", 5.0, 1, true);
-		Quote usersQuote = new Quote(supervisor, "Barley", 1);
-		
-        ActionFactory actionFactory = new ActionFactory();
-
-        UserAction submit = actionFactory.getAction(usersQuote, supervisor, "submit");
-        submit.execute("");
         
         UserAction testClimb = actionFactory.getAction(usersQuote, supervisor, "climb");
         testClimb.execute("Climbed quote");
@@ -35,13 +47,6 @@ public class SupervisorStateTest {
 	@Test
 	public void supervisorClimbQuoteStateChangeTest() throws IncorrectQuoteStateError {
 	
-		User supervisor = new Supervisor("vca", "John Smith", "broker@vca.com", "987654321", 98009, "password", 5.0, 1, true);
-		Quote usersQuote = new Quote(supervisor, "Barley", 1);
-		
-        ActionFactory actionFactory = new ActionFactory();
-
-        UserAction submit = actionFactory.getAction(usersQuote, supervisor, "submit");
-        submit.execute("");
         
         UserAction testClimb = actionFactory.getAction(usersQuote, supervisor, "climb");
         testClimb.execute("Climbed quote");
@@ -53,13 +58,6 @@ public class SupervisorStateTest {
 	@Test(expected = IncorrectQuoteStateError.class)
 	public void supervisorSubmitErrorTest() throws IncorrectQuoteStateError {
 	
-		User supervisor = new Supervisor("vca", "John Smith", "broker@vca.com", "987654321", 98009, "password", 5.0, 1, true);
-		Quote usersQuote = new Quote(supervisor, "Barley", 1);
-		
-        ActionFactory actionFactory = new ActionFactory();
-
-        UserAction submit = actionFactory.getAction(usersQuote, supervisor, "submit");
-        submit.execute("");
         
         UserAction testSubmit = actionFactory.getAction(usersQuote, supervisor, "submit");
         testSubmit.execute("");
@@ -69,13 +67,6 @@ public class SupervisorStateTest {
 	@Test
 	public void supervisorRejectQuoteStateChangeTest() throws IncorrectQuoteStateError {
 	
-		User supervisor = new Supervisor("vca", "John Smith", "broker@vca.com", "987654321", 98009, "password", 5.0, 1, true);
-		Quote usersQuote = new Quote(supervisor, "Barley", 1);
-		
-        ActionFactory actionFactory = new ActionFactory();
-
-        UserAction submit = actionFactory.getAction(usersQuote, supervisor, "submit");
-        submit.execute("");
         
         UserAction testReject = actionFactory.getAction(usersQuote, supervisor, "reject");
         testReject.execute("Rejected quote");
@@ -86,14 +77,7 @@ public class SupervisorStateTest {
 	
 	@Test
 	public void supervisorAcceptQuoteStateChangeTest() throws IncorrectQuoteStateError {
-	
-		User supervisor = new Supervisor("vca", "John Smith", "broker@vca.com", "987654321", 98009, "password", 5.0, 1, true);
-		Quote usersQuote = new Quote(supervisor, "Barley", 1);
-		
-        ActionFactory actionFactory = new ActionFactory();
 
-        UserAction submit = actionFactory.getAction(usersQuote, supervisor, "submit");
-        submit.execute("");
         
         UserAction testAccept = actionFactory.getAction(usersQuote, supervisor, "accept");
         testAccept.execute("Accepted quote");

@@ -13,7 +13,6 @@ public class SubmitAction extends UserAction {
     public void execute(String reason) throws IncorrectQuoteStateError {
 
         if (this.validate()) {
-            System.out.println("submitted");
             getActionQuote().submitQuote();
         }
     }
