@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import Quotation.NoQuotePermissionError;
 import Quotation.Quote;
 import Quotation.SupervisorState;
 
@@ -21,7 +22,7 @@ public class ActionFactoryTest {
 	public ActionFactory testFactory;
 	
 	@Before
-	public void setUp() {
+	public void setUp() throws NoQuotePermissionError {
 		supervisor = new Supervisor("vca", "John Smith", "broker@vca.com", "987654321", 98009, "password", 5.0, 1, true);
 		usersQuote = new Quote(supervisor, "Barley", 1, 52);
 		testFactory = new ActionFactory();

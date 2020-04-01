@@ -18,7 +18,7 @@ public class SupervisorStateTest {
 	public ActionFactory actionFactory;
 	
 	@Before
-	public void setUp() throws IncorrectQuoteStateError {
+	public void setUp() throws IncorrectQuoteStateError, NoQuotePermissionError {
 		
 		supervisor = new Supervisor("vca", "John Smith", "broker@vca.com", "987654321", 98009, "password", 5.0, 1, true);
 		usersQuote = new Quote(supervisor, "Barley", 1, 52);

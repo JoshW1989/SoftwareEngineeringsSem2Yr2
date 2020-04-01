@@ -15,14 +15,17 @@ public class Quote {
     private User supervisor;
     private double hectares;
 
-    public Quote(User user, String crop, int zone, double hectares) {
-
-        setZone(zone);
-        setCrop(crop);
-        setBroker(user);
-        setHectares(hectares);
-        currentState = new ApplicantState(this);
-
+    public Quote(User user, String crop, int zone, double hectares) throws NoQuotePermissionError {
+    	
+    	if (user.getCanRequest() == true) {
+	        setZone(zone);
+	        setCrop(crop);
+	        setBroker(user);
+	        setHectares(hectares);
+	        currentState = new ApplicantState(this);
+    	} else {
+    		throw new NoQuotePermissionError();
+    	}
     }
 
     // Used to set the current state of the quote - the state defines how method calls interact with the object

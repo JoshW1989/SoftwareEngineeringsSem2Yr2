@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import Quotation.IncorrectQuoteStateError;
+import Quotation.NoQuotePermissionError;
 import Quotation.Quote;
 import Users.Broker;
 import Users.Manager;
@@ -21,7 +22,7 @@ public class RejectActionTest {
 	public Quote usersQuote;
 	
 	@Before
-	public void setUp() {
+	public void setUp() throws NoQuotePermissionError {
 		supervisor = new Supervisor("vca", "John Smith", "broker@vca.com", "987654321", 98009, "password", 5.0, 1, true);
 		manager = new  Manager("test", "John Smith", "manager@vca.com", "987654321", 98009, "password", 1.0);
 		usersQuote = new Quote(supervisor, "Barley", 1, 52);
@@ -79,7 +80,7 @@ public class RejectActionTest {
 	}
 	
 	@Test
-	public void RejectActionSupervisorIncorrectZone() throws IncorrectQuoteStateError, WrongUserException {
+	public void RejectActionSupervisorIncorrectZone() throws IncorrectQuoteStateError, WrongUserException, NoQuotePermissionError {
 		
 		Quote usersQuote = new Quote(supervisor, "Barley", 2, 52);
 		RejectAction testAction = new RejectAction(usersQuote, supervisor);
