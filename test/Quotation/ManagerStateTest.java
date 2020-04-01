@@ -25,27 +25,17 @@ public class ManagerStateTest {
 	@Before
 	public void setUp() throws WrongUserException, IncorrectQuoteStateError {
 		supervisor = new Supervisor("vca", "John Smith", "broker@vca.com", "987654321", 98009, "password", 5.0, 1, true);
-		manager = new Manager("VCA", "John Smith", "broker@vca.com", "968885", 97759, "password", 5.0);
-		usersQuote = new Quote(supervisor, "Barley", 1, 52);
-		
-		manager.addEmp(supervisor);
-		
-		actionFactory = new ActionFactory();
-		
-		submit = actionFactory.getAction(usersQuote, supervisor, "submit");
-        submit.execute("");
-        climb = actionFactory.getAction(usersQuote, supervisor, "climb");
-        climb.execute("Climbed quote");  
+		usersQuote = new Quote(supervisor, "Barley", 1, 52);	
         
 	}
 
 	@Test
-	public void managerRejectQuoteErrorTest() throws IncorrectQuoteStateError, WrongUserException {
+	public void managerRejectTest() throws IncorrectQuoteStateError, WrongUserException {
         
-        UserAction testReject = actionFactory.getAction(usersQuote, manager, "reject");
-        testReject.execute("Rejecting quote as manager");
+		ManagerState testState = new ManagerState(usersQuote);
+		testState.reject("Rejecting quote management state");
         
-        String expected = "Rejecting quote as manager";
+        String expected = "Rejecting quote management state";
         
         Assert.assertEquals(expected, usersQuote.getRejectReason());
 	}
@@ -53,11 +43,27 @@ public class ManagerStateTest {
 	@Test
 	public void managerAcceptQuotePolicyStateTest() throws IncorrectQuoteStateError, WrongUserException {
         
-        UserAction testAccept = actionFactory.getAction(usersQuote, manager, "accept");
-        testAccept.execute("");
+		ManagerState testState = new ManagerState(usersQuote);
+		testState.accept();
         
         Assert.assertTrue(usersQuote.getQuoteState() instanceof PolicyState);
 	
+	}
+	
+	@Test(expected = IncorrectQuoteStateError.class)
+	public void managerClimbErrorTest() throws IncorrectQuoteStateError{
+		
+		ManagerState testState = new ManagerState(usersQuote);
+		testState.climb("climbing", supervisor);
+		
+	}
+	
+	@Test(expected = IncorrectQuoteStateError.class)
+	public void managerSubmitErrorTest() throws IncorrectQuoteStateError{
+		
+		ManagerState testState = new ManagerState(usersQuote);
+		testState.submit();
+		
 	}
 	
 }

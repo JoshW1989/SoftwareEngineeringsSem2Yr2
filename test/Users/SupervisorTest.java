@@ -18,7 +18,5 @@ public class SupervisorTest {
 		assertEquals(expected, supervisor.getCommission(), 0);
 	}
 
-	
-	// check exception message here
-	
+
 }

@@ -18,7 +18,7 @@ public class BrokerTest {
 	}
 	
 	@Test(expected = UnsupportedOperationException.class)
-	public void testBrokerCheckEmployee() {
+	public void testBrokerCheckEmployeeErrors() {
 		User broker = new Broker("test", "John Smith", "broker@vca.com", "987654321", 98009, "password", 1.0);
 		broker.checkEmployee(1);
 		

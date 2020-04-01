@@ -19,14 +19,12 @@ public class ClimbAction extends UserAction {
 
     public boolean validate(){
 
-        boolean valid = false;
-
         if (getRequester().getRole() == "supervisor") {
             if(getRequester().getZone() == getActionQuote().getZone()) {
-                valid = true;
+                return true;
             }
         }
-        return valid;
+        return false;
 
         // check that the requester is a supervisor
         //FROM RELEVANT ZONE

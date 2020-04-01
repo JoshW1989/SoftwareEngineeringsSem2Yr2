@@ -1,6 +1,8 @@
 package Actions;
 
 import Quotation.IncorrectQuoteStateError;
+import Quotation.ManagerState;
+import Quotation.SupervisorState;
 import Quotation.Quote;
 import Users.User;
 
@@ -20,20 +22,31 @@ public class RejectAction extends UserAction {
 
     public boolean validate() {
 
-        boolean validated = false;
+    	if (getActionQuote().getQuoteState() instanceof ManagerState) {
+    		return validateManager();
+    	} 
+    	else if (getActionQuote().getQuoteState() instanceof SupervisorState) {
+    		return validateSupervisor();
+    	}
+        return false;
 
+    }
+    
+    public boolean validateManager() {
         if (getRequester().getRole() == "manager") {
             if (getRequester().checkEmployee(getActionQuote().getSupervisorID())) {
-                validated = true;
+                return true;
             }
-        } else if (getRequester().getRole() == "supervisor" &
-                getRequester().getZone() == getActionQuote().getZone()) {
-            validated = true;
         }
-        return validated;
-        // check that the requester is a supervisor from the relevant zone or a manager
-        // return true if so
-
+        return false;    
+    }
+    
+    public boolean validateSupervisor() {
+    	if (getRequester().getRole() == "supervisor" &
+                getRequester().getZone() == getActionQuote().getZone()) {
+            return true;
+    	}
+    	return false;
     }
 
 }

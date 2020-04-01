@@ -2,13 +2,24 @@ package Users;
 
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class ManagerTest {
+	
+	public Manager manager;
+	public Supervisor supervisor;
+	
+	@Before
+	public void setUp() {
+		manager = new  Manager("test", "John Smith", "manager@vca.com", "987654321", 98009, "password", 1.0);
+		supervisor = new  Supervisor("test", "John Smith", "supervisior@vca.com", "987654321",
+				98009, "password", 1.0, 1, true);
+	}
 
 	@Test
 	public void testManagerConstructor() {
-		User manager = new  Manager("test", "John Smith", "manager@vca.com", "987654321", 98009, "password", 1.0);
+
 		
 		String expected = "manager";
 		
@@ -17,9 +28,7 @@ public class ManagerTest {
 	
 	@Test
 	public void testManagerAddEmpSupervisor () throws WrongUserException {
-		Manager manager = new  Manager("test", "John Smith", "manager@vca.com", "987654321", 98009, "password", 1.0);
-		User supervisor = new  Supervisor("test", "John Smith", "supervisior@vca.com", "987654321",
-				98009, "password", 1.0, 1, true);
+
 		
 		manager.addEmp(supervisor);
 		
@@ -29,7 +38,7 @@ public class ManagerTest {
 	
 	@Test(expected = WrongUserException.class)
 	public void testManagerAddEmpBroker() throws WrongUserException {
-		Manager manager = new  Manager("test", "John Smith", "manager@vca.com", "987654321", 98009, "password", 1.0);
+
 		User broker = new  Broker("test", "John Smith", "manager@vca.com", "987654321", 98009, "password", 1.0);
 		
 		manager.addEmp(broker);
@@ -38,9 +47,6 @@ public class ManagerTest {
 	
 	@Test
 	public void testManagerRemoveEmpSupervisor () throws WrongUserException {
-		Manager manager = new  Manager("test", "John Smith", "manager@vca.com", "987654321", 98009, "password", 1.0);
-		User supervisor = new  Supervisor("test", "John Smith", "supervisior@vca.com", "987654321",
-				98009, "password", 1.0, 1, true);
 		
 		manager.addEmp(supervisor);
 		manager.removeEmp(supervisor);
@@ -50,9 +56,6 @@ public class ManagerTest {
 	
 	@Test
 	public void testManagerCheckEmployeeCorrect () throws WrongUserException {
-		Manager manager = new  Manager("test", "John Smith", "manager@vca.com", "987654321", 98009, "password", 1.0);
-		User supervisor = new  Supervisor("test", "John Smith", "supervisior@vca.com", "987654321",
-				98009, "password", 1.0, 1, true);
 		
 		manager.addEmp(supervisor);
 		boolean foundEmp = manager.checkEmployee(98009);
@@ -62,12 +65,9 @@ public class ManagerTest {
 	
 	@Test
 	public void testManagerCheckEmployeeIncorrect () throws WrongUserException {
-		Manager manager = new  Manager("test", "John Smith", "manager@vca.com", "987654321", 98009, "password", 1.0);
-		User supervisor = new  Supervisor("test", "John Smith", "supervisior@vca.com", "987654321",
-				98009, "password", 1.0, 1, true);
 		
 		manager.addEmp(supervisor);
-		boolean foundEmp = manager.checkEmployee(1);
+		boolean foundEmp = manager.checkEmployee(999);
 		assertEquals(false, foundEmp);
 		
 	}

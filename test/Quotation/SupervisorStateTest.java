@@ -26,18 +26,15 @@ public class SupervisorStateTest {
 		
         actionFactory = new ActionFactory();
 
-        submit = actionFactory.getAction(usersQuote, supervisor, "submit");
-        submit.execute("");
 		
 	}
 
 	@Test
 	public void supervisorClimbQuoteSupervisorChangeTest() throws IncorrectQuoteStateError {
 	
-        
-        UserAction testClimb = actionFactory.getAction(usersQuote, supervisor, "climb");
-        testClimb.execute("Climbed quote");
-        
+        SupervisorState testState = new SupervisorState(usersQuote); 
+        testState.climb("Climbing quote", supervisor);
+       
         int expected = 98009;
         
         Assert.assertEquals(expected, usersQuote.getSupervisor().getUserId());
@@ -48,8 +45,8 @@ public class SupervisorStateTest {
 	public void supervisorClimbQuoteStateChangeTest() throws IncorrectQuoteStateError {
 	
         
-        UserAction testClimb = actionFactory.getAction(usersQuote, supervisor, "climb");
-        testClimb.execute("Climbed quote");
+        SupervisorState testState = new SupervisorState(usersQuote); 
+        testState.climb("Climbing quote", supervisor);
         
         Assert.assertTrue(usersQuote.getQuoteState() instanceof ManagerState);
 		
@@ -59,8 +56,8 @@ public class SupervisorStateTest {
 	public void supervisorSubmitErrorTest() throws IncorrectQuoteStateError {
 	
         
-        UserAction testSubmit = actionFactory.getAction(usersQuote, supervisor, "submit");
-        testSubmit.execute("");
+        SupervisorState testState = new SupervisorState(usersQuote); 
+        testState.submit();
 		
 	}
 	
@@ -68,8 +65,8 @@ public class SupervisorStateTest {
 	public void supervisorRejectQuoteStateChangeTest() throws IncorrectQuoteStateError {
 	
         
-        UserAction testReject = actionFactory.getAction(usersQuote, supervisor, "reject");
-        testReject.execute("Rejected quote");
+        SupervisorState testState = new SupervisorState(usersQuote); 
+        testState.reject("Rejecting quote");
         
         Assert.assertTrue(usersQuote.getQuoteState() instanceof ApplicantState);
 		
@@ -79,8 +76,8 @@ public class SupervisorStateTest {
 	public void supervisorAcceptQuoteStateChangeTest() throws IncorrectQuoteStateError {
 
         
-        UserAction testAccept = actionFactory.getAction(usersQuote, supervisor, "accept");
-        testAccept.execute("Accepted quote");
+        SupervisorState testState = new SupervisorState(usersQuote); 
+        testState.accept();
         
         Assert.assertTrue(usersQuote.getQuoteState() instanceof PolicyState);
 		
