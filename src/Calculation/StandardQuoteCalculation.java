@@ -1,8 +1,8 @@
 package Calculation;
 
-public class StandardQuote extends QuoteCalculation{
+public class StandardQuoteCalculation extends QuoteCalculation{
 
-	public StandardQuote(int zone, String crop, double hecatares, double userComission) {
+	public StandardQuoteCalculation(int zone, String crop, double hecatares, double userComission) {
 		super(zone, crop, hecatares, userComission);
 		
 		Rates standardRates = new StandardCropRates();

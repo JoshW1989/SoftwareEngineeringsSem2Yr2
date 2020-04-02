@@ -52,6 +52,7 @@ public abstract class QuoteCalculation {
 	public void calculateTotal() {
 		
 		double total = baseCost * this.getRateType().cropModifier(this.getCrop());
+		total = total * this.getHectares();
 		double max = this.getRateType().zoneMax(this.getZone());
 		if (total > max) {
 			total = max;

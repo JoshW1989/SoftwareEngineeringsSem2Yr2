@@ -1,7 +1,7 @@
 package Quotation;
 
 import Calculation.QuoteCalculation;
-import Calculation.StandardQuote;
+import Calculation.StandardQuoteCalculation;
 import Users.User;
 
 public class Quote {
@@ -78,7 +78,7 @@ public class Quote {
 
     public void assignValues() {
     	
-    	QuoteCalculation quoteRates = new StandardQuote(this.getZone(), this.getCrop(),
+    	QuoteCalculation quoteRates = new StandardQuoteCalculation(this.getZone(), this.getCrop(),
     			this.getHectares(), this.getBroker().getCommission());
     	
     	this.setTotalVal(quoteRates.getTotalVal());

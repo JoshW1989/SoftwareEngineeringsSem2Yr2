@@ -7,16 +7,15 @@ public class StandardCropRates implements Rates {
 	
 		double mod = 0;
 		
-		switch(crop) {
-			case "barley":
-				mod = 1.0;
-			case "wheat":
-				mod = 1.3;
-			case "blackcurrant":
-				mod = 1.4;
-			case "raspberries":
-				mod = 1.5;
-			}
+		if (crop == "barley" ) {
+			mod = 1.0;
+		} else if (crop == "wheat") {
+			mod = 1.3;
+		} else if (crop == "blackcurrant") {
+			mod = 1.4;
+		} else if (crop == "raspberries") {
+			mod = 1.5;
+		}
 		
 		return mod;
 	}
@@ -25,18 +24,17 @@ public class StandardCropRates implements Rates {
 	@Override
 	public double zoneMax(int zone) {
 		
-		double max = 0;
+		double max;
 		
-		switch(zone) {
-			case 1:
-				max = 4000000;
-			case 2:
-				max = 7000000;
-			case 3:
-				max = 7000000;
-			case 0:
-				max = 4000000;
-			}
+		if (zone == 1 ) {
+			max = 4000000;
+		} else if (zone == 2) {
+			max = 7000000;
+		} else if (zone == 3) {
+			max = 7000000;
+		} else {
+			max = 4000000; // Default value
+		}
 		
 		return max;
 	}

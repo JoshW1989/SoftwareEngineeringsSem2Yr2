@@ -3,6 +3,7 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 import Actions.*;
+import Calculation.StandardQuoteCalculationTest;
 import Quotation.*;
 import Users.*;
 
@@ -20,7 +21,8 @@ import Users.*;
 	BrokerTest.class,
 	ManagerTest.class,
 	SupervisorTest.class,
-	QuoteTest.class
+	QuoteTest.class,
+	StandardQuoteCalculationTest.class
 })
 
 public class AllTests {
