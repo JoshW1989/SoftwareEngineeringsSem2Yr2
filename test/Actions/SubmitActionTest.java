@@ -25,7 +25,7 @@ public class SubmitActionTest {
 		usersQuote = new Quote(supervisor, "Barley", 1, 52);
 	}
 
-	
+	// checks user who created quote passes validation to submit
 	@Test
 	public void submitTestCorrecUser() {
 
@@ -37,6 +37,7 @@ public class SubmitActionTest {
 		Assert.assertEquals(expected, testAction.validate());		
 	}
 	
+	// checks a user who did not create the quote fails validation
 	@Test
 	public void submitTestIncorrecUser() {
 

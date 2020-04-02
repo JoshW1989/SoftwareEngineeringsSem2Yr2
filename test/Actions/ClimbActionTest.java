@@ -23,6 +23,7 @@ public class ClimbActionTest {
 		usersQuote = new Quote(supervisor, "Barley", 1, 52);
 	}
 
+	// checks correct supervisor passes validation
 	@Test
 	public void climbTestCorrecSupervisor() {
 
@@ -34,6 +35,7 @@ public class ClimbActionTest {
 		Assert.assertEquals(expected, testAction.validate());		
 	}
 	
+	// checks supervisor not assigned the quotes zone, fails validation
 	@Test
 	public void climbTestIncorrectZone() throws NoQuotePermissionError {
 		usersQuote = new Quote(supervisor, "Barley", 2, 52);
@@ -45,6 +47,7 @@ public class ClimbActionTest {
 		Assert.assertEquals(expected, testAction.validate());		
 	}
 	
+	// checks user who can't climb quotes fails validation
 	@Test
 	public void climbTestIncorrectUser() {
 

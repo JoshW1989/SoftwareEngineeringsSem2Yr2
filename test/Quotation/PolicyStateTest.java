@@ -24,7 +24,7 @@ public class PolicyStateTest {
 		usersQuote = new Quote(supervisor, "Barley", 1, 52);
 	}
 	
-	
+	// Ensures quote cant be actioned without error
 	@Test(expected = IncorrectQuoteStateError.class)
 	public void policyRejectQuoteErrorTest() throws IncorrectQuoteStateError{
 	
@@ -33,6 +33,7 @@ public class PolicyStateTest {
 
 	}
 	
+	// Ensures quote cant be actioned without error
 	@Test(expected = IncorrectQuoteStateError.class)
 	public void policyAcceptQuoteErrorTest() throws IncorrectQuoteStateError{
 	
@@ -41,6 +42,7 @@ public class PolicyStateTest {
 		testPolicy.accept();
 	}
 	
+	// Ensures quote cant be actioned without error
 	@Test(expected = IncorrectQuoteStateError.class)
 	public void policyClimbQuoteErrorTest() throws IncorrectQuoteStateError{
         
@@ -48,6 +50,7 @@ public class PolicyStateTest {
 		testPolicy.climb("Climb reason", supervisor);
 	}
 	
+	// Ensures quote cant be actioned without error
 	@Test(expected = IncorrectQuoteStateError.class)
 	public void policySubmitbQuoteErrorTest() throws IncorrectQuoteStateError{
         

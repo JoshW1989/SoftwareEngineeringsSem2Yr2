@@ -28,6 +28,7 @@ public class SupervisorStateTest {
 		
 	}
 
+	// Ensures when a supervisor climbs, that supervisor is assigned to the quote
 	@Test
 	public void supervisorClimbQuoteSupervisorChangeTest() throws IncorrectQuoteStateError {
 	
@@ -40,6 +41,7 @@ public class SupervisorStateTest {
 		
 	}
 	
+	// Checks that the supervisor state changes the quotes current state when climbed
 	@Test
 	public void supervisorClimbQuoteStateChangeTest() throws IncorrectQuoteStateError {
 	
@@ -51,6 +53,7 @@ public class SupervisorStateTest {
 		
 	}
 	
+	// checks an error is thrown when trying to submit quote at already at supervisor State
 	@Test(expected = IncorrectQuoteStateError.class)
 	public void supervisorSubmitErrorTest() throws IncorrectQuoteStateError {
 	
@@ -60,6 +63,7 @@ public class SupervisorStateTest {
 		
 	}
 	
+	// checks reject executes and updates quote state
 	@Test
 	public void supervisorRejectQuoteStateChangeTest() throws IncorrectQuoteStateError {
 	
@@ -71,6 +75,7 @@ public class SupervisorStateTest {
 		
 	}
 	
+	// check accept executes and changes to policy state
 	@Test
 	public void supervisorAcceptQuoteStateChangeTest() throws IncorrectQuoteStateError {
 

@@ -26,6 +26,7 @@ public class ManagerStateTest {
         
 	}
 
+	// checks reject method executes
 	@Test
 	public void managerRejectTest() throws IncorrectQuoteStateError, WrongUserException {
         
@@ -37,6 +38,7 @@ public class ManagerStateTest {
         Assert.assertEquals(expected, usersQuote.getRejectReason());
 	}
 	
+	// check accept executes and assigns quote new state
 	@Test
 	public void managerAcceptQuotePolicyStateTest() throws IncorrectQuoteStateError, WrongUserException {
         
@@ -47,6 +49,7 @@ public class ManagerStateTest {
 	
 	}
 	
+	// checks quote at manager state cant be climbed, throws error
 	@Test(expected = IncorrectQuoteStateError.class)
 	public void managerClimbErrorTest() throws IncorrectQuoteStateError{
 		
@@ -55,6 +58,7 @@ public class ManagerStateTest {
 		
 	}
 	
+	// checks error when trying to submit in manager state
 	@Test(expected = IncorrectQuoteStateError.class)
 	public void managerSubmitErrorTest() throws IncorrectQuoteStateError{
 		

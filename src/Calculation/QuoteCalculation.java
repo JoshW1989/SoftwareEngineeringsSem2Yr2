@@ -63,6 +63,7 @@ public abstract class QuoteCalculation {
 		
 	}
 	
+	// Monthly payment for broker
 	public void calculateMonthly() {
 		double monthly = (this.getTotalVal() / 12) * monthlyModifier;
 		this.setMonthlyCost(monthly);

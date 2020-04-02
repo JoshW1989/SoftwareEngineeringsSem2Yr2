@@ -28,6 +28,7 @@ public class RejectActionTest {
 		usersQuote = new Quote(supervisor, "Barley", 1, 52);
 	}
 
+	// checks quote in wrong state does not pass validation to reject
 	@Test
 	public void checkIncorrectState() {
 
@@ -39,7 +40,7 @@ public class RejectActionTest {
 		Assert.assertEquals(expected, testAction.validate());		
 	}
 	
-	
+	// checks correct manager passes through validation
 	@Test
 	public void RejectActionCorrectManager() throws IncorrectQuoteStateError, WrongUserException {
 		
@@ -54,6 +55,7 @@ public class RejectActionTest {
 		Assert.assertEquals(expected, testAction.validate());	
 	}
 	
+	// checks manager without the correct employee cant reject the quote
 	@Test
 	public void RejectActionInorrectManager() throws IncorrectQuoteStateError, WrongUserException {
 		
@@ -67,6 +69,7 @@ public class RejectActionTest {
 		Assert.assertEquals(expected, testAction.validate());	
 	}
 	
+	// checks supervisor with correct zone can reject the quote
 	@Test
 	public void RejectActionSupervisorCorrectZone() throws IncorrectQuoteStateError, WrongUserException {
 		
@@ -79,6 +82,7 @@ public class RejectActionTest {
 		Assert.assertEquals(expected, testAction.validate());	
 	}
 	
+	// checks supervisor without correct zone doesnt validate
 	@Test
 	public void RejectActionSupervisorIncorrectZone() throws IncorrectQuoteStateError, WrongUserException, NoQuotePermissionError {
 		
@@ -92,6 +96,7 @@ public class RejectActionTest {
 		Assert.assertEquals(expected, testAction.validate());	
 	}
 	
+	// checks that wrong user type cant pass validation
 	@Test
 	public void RejectActionWrongUser() throws IncorrectQuoteStateError, WrongUserException {
 

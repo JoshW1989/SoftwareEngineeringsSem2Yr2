@@ -37,6 +37,7 @@ public class ApplicantStateTest {
 	@Rule
 	public ExpectedException expected = ExpectedException.none();
 	
+	// Checks that message is passed on error
 	@Test(expected = IncorrectQuoteStateError.class)
 	public void applicantClimbErrorMessageTest() throws IncorrectQuoteStateError {
 		
@@ -50,6 +51,7 @@ public class ApplicantStateTest {
 		
 	}
 	
+	// check submit executes and assigns quote new message
 	@Test
 	public void applicantSubmitTest() throws IncorrectQuoteStateError {
 		
@@ -63,7 +65,7 @@ public class ApplicantStateTest {
 	}
 	
 	
-	
+	// check accept executes and assigns quote new state
 	@Test
 	public void applicantSubmitQuoteStatusChangeTest() throws IncorrectQuoteStateError {
 	
@@ -74,6 +76,7 @@ public class ApplicantStateTest {
 
 	}
 	
+	// check reject executes and assigns quote new reject reason message
 	@Test
 	public void applicantRejectTest() throws IncorrectQuoteStateError {
 	

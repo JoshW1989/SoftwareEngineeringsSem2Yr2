@@ -17,6 +17,7 @@ public class ManagerTest {
 				98009, "password", 1.0, 1, true);
 	}
 
+	// Ensures constuctor is assigng values
 	@Test
 	public void testManagerConstructor() {
 
@@ -26,6 +27,7 @@ public class ManagerTest {
 		assertEquals(expected, manager.getRole());
 	}
 	
+	// checks employees can be added to manager list
 	@Test
 	public void testManagerAddEmpSupervisor () throws WrongUserException {
 
@@ -36,6 +38,7 @@ public class ManagerTest {
 		
 	}
 	
+	// checks manager cant add non-supervisors
 	@Test(expected = WrongUserException.class)
 	public void testManagerAddEmpBroker() throws WrongUserException {
 
@@ -45,6 +48,7 @@ public class ManagerTest {
 		
 	}
 	
+	// checks that objects can be removed from the list
 	@Test
 	public void testManagerRemoveEmpSupervisor () throws WrongUserException {
 		
@@ -54,6 +58,7 @@ public class ManagerTest {
 		
 	}
 	
+	// checks that the list can be searched for a matching employee id
 	@Test
 	public void testManagerCheckEmployeeCorrect () throws WrongUserException {
 		
@@ -63,6 +68,7 @@ public class ManagerTest {
 		
 	}
 	
+	// checks that a non matching employee ID doesnt return a match
 	@Test
 	public void testManagerCheckEmployeeIncorrect () throws WrongUserException {
 		

@@ -21,6 +21,7 @@ public class QuoteTest {
 		
 	}
 	
+	// checks quote stops new quotes beng assigned to those without permission to request
 	@Test(expected = NoQuotePermissionError.class)
 	public void newQuoteIncorrectPermission() throws NoQuotePermissionError {
 
