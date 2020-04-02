@@ -2,7 +2,6 @@ package Users;
 
 public abstract class User {
 
-    //Attributes
     private String company;
     private String name;
     private String email;
@@ -14,7 +13,6 @@ public abstract class User {
     private int zone;
     private boolean canRequest;
 
-    //Getters & Setters
     public String getCompany() { return company; }
     public void setCompany(String company) { this.company = company; }
 
@@ -45,7 +43,7 @@ public abstract class User {
     public boolean getCanRequest() { return canRequest; }
     public void setCanRequest(boolean newCanRequest) { this.canRequest = newCanRequest; }
 
-    //Constructor
+    // Base class for all users
     public User(String company, String name, String email, String quickCall, int userId, String password, double commission)
     {
         this.company = company;
@@ -55,7 +53,7 @@ public abstract class User {
         this.userId = userId;
         this.password = password;
 
-
+        
         if (company == "VCA" || company == "vca")
         {
             //Commission is always 5% for VCA employees
@@ -67,7 +65,7 @@ public abstract class User {
         }
     }
 
-
+    // Shared as part of the composite design pattern, Manager class implements working version
     public boolean checkEmployee(int id) {
         throw new UnsupportedOperationException();
     }

@@ -68,15 +68,15 @@ public class Quote {
 	        setBroker(user);
 	        setHectares(hectares);
 	        currentState = new ApplicantState(this);
-	        assignValues();
-	        
+	        assignCosts();
+	     
     	} else {
     		throw new NoQuotePermissionError();
     	}
     }
 
-
-    public void assignValues() {
+    // uses the quote calculation package to assign the monetary values
+    public void assignCosts() {
     	
     	QuoteCalculation quoteRates = new StandardQuoteCalculation(this.getZone(), this.getCrop(),
     			this.getHectares(), this.getBroker().getCommission());
@@ -87,7 +87,7 @@ public class Quote {
     	
     }
 
-    
+    // Allows all actions to be called from one place. These are executed by the active quote state
     public void climbQuote (String reason, User user) throws IncorrectQuoteStateError {
         currentState.climb(reason, user);
     }

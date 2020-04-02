@@ -17,8 +17,8 @@ public class ClimbAction extends UserAction {
         }
     }
 
+    // Ensures employee is supervisor assigned the correct zone
     public boolean validate(){
-
         if (getRequester().getRole() == "supervisor") {
             if(getRequester().getZone() == getActionQuote().getZone()) {
                 return true;

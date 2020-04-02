@@ -1,5 +1,6 @@
 package Calculation;
 
+// base class for any calculations which implement their own rates (strategy design pattern)
 public abstract class QuoteCalculation {
 
 	private double totalVal;

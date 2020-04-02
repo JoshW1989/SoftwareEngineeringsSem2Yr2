@@ -1,5 +1,6 @@
 package Calculation;
 
+// interface for all business rates
 public interface Rates {
 	
 	double cropModifier(String crop);

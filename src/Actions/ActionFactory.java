@@ -3,6 +3,7 @@ package Actions;
 import Quotation.Quote;
 import Users.User;
 
+// User sends a command and the correct action class is returned part of factory design pattern
 public class ActionFactory {
 
     public UserAction getAction (Quote quote, User user, String action) {

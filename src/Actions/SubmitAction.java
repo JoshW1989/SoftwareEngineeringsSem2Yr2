@@ -11,14 +11,13 @@ public class SubmitAction extends UserAction {
     }
 
     public void execute(String reason) throws IncorrectQuoteStateError {
-
         if (this.validate()) {
             getActionQuote().submitQuote();
         }
     }
-
-    public boolean validate() {
-        // Checks that the person performing an action is the quotes broker
+    
+    // Checks that the person performing an action is the quotes broker
+    public boolean validate() {        
         return (getRequester().getUserId() == getActionQuote().getBroker().getUserId());
 
     }

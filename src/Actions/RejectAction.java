@@ -20,8 +20,8 @@ public class RejectAction extends UserAction {
         }
     }
 
+    // checks quote is in correct state and passes to employee specific validation
     public boolean validate() {
-
     	if (getActionQuote().getQuoteState() instanceof ManagerState) {
     		return validateManager();
     	} 
@@ -32,6 +32,8 @@ public class RejectAction extends UserAction {
 
     }
     
+    // checks employee is manager
+    // ensures the person who escalated the quote is within the managers employees list
     public boolean validateManager() {
         if (getRequester().getRole() == "manager") {
             if (getRequester().checkEmployee(getActionQuote().getSupervisorID())) {
@@ -41,6 +43,7 @@ public class RejectAction extends UserAction {
         return false;    
     }
     
+    // Ensures employee is a supervisor and is assigned the correct zone
     public boolean validateSupervisor() {
     	if (getRequester().getRole() == "supervisor" &
                 getRequester().getZone() == getActionQuote().getZone()) {

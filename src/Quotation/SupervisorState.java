@@ -1,7 +1,7 @@
 package Quotation;
-import Actions.UserAction;
 import Users.User;
 
+// State once a quote is initially submitted for review
 public class SupervisorState implements QuoteState  {
 
     Quote quote;
@@ -10,6 +10,7 @@ public class SupervisorState implements QuoteState  {
         quote = sentQuote;
     }
 
+    // Supervisor attached to quote so only the correct manager can then review
     @Override
     public void climb(String climbReason, User supervisor) {
         quote.setClimbReason(climbReason);
@@ -17,6 +18,7 @@ public class SupervisorState implements QuoteState  {
         quote.setQuoteState(new ManagerState(quote));
     }
 
+    // Quote is already submitted
     @Override
     public void submit() throws IncorrectQuoteStateError {
     	throw new IncorrectQuoteStateError("Supervisor");

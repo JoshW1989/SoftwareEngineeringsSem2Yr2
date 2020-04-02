@@ -2,6 +2,7 @@ package Quotation;
 
 import Users.User;
 
+// interface for all quote states
 public interface QuoteState {
 
     // Defines the actions which will be available to all states the quote can be in
@@ -14,5 +15,4 @@ public interface QuoteState {
 
     void accept() throws IncorrectQuoteStateError;
 
-    //String getQuoteState*(<)
 }

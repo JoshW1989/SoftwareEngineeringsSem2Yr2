@@ -1,11 +1,9 @@
 package Quotation;
 
 import Users.User;
-import Users.WrongUserException;
 
+// Initial state of a quote. The applicant controls the process flow
 public class ApplicantState implements QuoteState {
-
-    // Initial state of a quote. The applicant controls the process flow
 
     private Quote quote;
 
@@ -32,6 +30,7 @@ public class ApplicantState implements QuoteState {
         quote.setRejectReason("REJECTED BY BROKER");
     }
 
+    // Quote must be submitted for review first
     @Override
     public void accept() throws IncorrectQuoteStateError{
         // Do nothing, applicants can't accept

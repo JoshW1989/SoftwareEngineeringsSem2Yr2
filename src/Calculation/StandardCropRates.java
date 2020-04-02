@@ -1,5 +1,6 @@
 package Calculation;
 
+// Set of business rates, similar classes could be added in the future
 public class StandardCropRates implements Rates {
 
 	@Override

@@ -1,8 +1,5 @@
 package Users;
 
-import Quotation.*;
-import java.util.ArrayList;
-
 public class Supervisor extends User {
 
     public Supervisor(String company, String name, String email, String quickCall, int userId, String password,

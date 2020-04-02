@@ -19,6 +19,7 @@ public class Manager extends User{
 
     }
 
+    // ensures only supervisors can be added as employees
     public void addEmp(User employee) throws WrongUserException {
     	if (employee.getRole() == "supervisor") {	
     		employees.add(employee);
@@ -32,6 +33,7 @@ public class Manager extends User{
     	employees.remove(employee);
     }
     
+    // returns true if 2 employee objects have matching ID's
     public boolean checkEmployee(int id) {
 
         boolean hasEmployee = false;
