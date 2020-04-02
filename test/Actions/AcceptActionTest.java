@@ -28,6 +28,7 @@ public class AcceptActionTest {
 		usersQuote = new Quote(supervisor, "Barley", 1, 52);
 	}
 
+	// Manager tries to accept a quote that has not been submitted for review
 	@Test
 	public void checkIncorrectState() {
 
@@ -36,10 +37,10 @@ public class AcceptActionTest {
 		testAction.validate();
 		boolean expected = false;
 		
-		Assert.assertEquals(expected, testAction.validate());		
+		Assert.assertEquals("Cant accept before submitting quote",expected, testAction.validate());		
 	}
 	
-	
+	// Manager accepts a quote climbed by his employee
 	@Test
 	public void acceptActionCorrectManager() throws IncorrectQuoteStateError, WrongUserException {
 		
@@ -52,9 +53,10 @@ public class AcceptActionTest {
 		
 		boolean expected = true;
 		
-		Assert.assertEquals(expected, testAction.validate());	
+		Assert.assertEquals("Employee is part of managers staff", expected, testAction.validate());	
 	}
 	
+	// Manager accepts quote raised by someone who isnt his employee
 	@Test
 	public void acceptActionInorrectManager() throws IncorrectQuoteStateError, WrongUserException {
 		
@@ -66,9 +68,10 @@ public class AcceptActionTest {
 		
 		boolean expected = false;
 		
-		Assert.assertEquals(expected, testAction.validate());	
+		Assert.assertEquals("Employee isnt part of manager list", expected, testAction.validate());	
 	}
 	
+	// Supervisor accepts submitted quote belonging to his zone assignment
 	@Test
 	public void acceptActionSupervisorCorrectZone() throws IncorrectQuoteStateError, WrongUserException {
 		
@@ -79,9 +82,10 @@ public class AcceptActionTest {
 		
 		boolean expected = true;
 		
-		Assert.assertEquals(expected, testAction.validate());	
+		Assert.assertEquals("supervisor correct zone", expected, testAction.validate());	
 	}
 	
+	// Supervisor accepts submitted quote not belonging to his zone assignment
 	@Test
 	public void acceptActionSupervisorIncorrectZone() throws IncorrectQuoteStateError, WrongUserException, NoQuotePermissionError {
 		
@@ -93,9 +97,10 @@ public class AcceptActionTest {
 		
 		boolean expected = false;
 		
-		Assert.assertEquals(expected, testAction.validate());	
+		Assert.assertEquals("Supervisor wrong zone", expected, testAction.validate());	
 	}
 	
+	// Broker tries to accepts a submitted quote
 	@Test
 	public void acceptActionWrongUser() throws IncorrectQuoteStateError, WrongUserException {
 
@@ -108,7 +113,7 @@ public class AcceptActionTest {
 		
 		boolean expected = false;
 		
-		Assert.assertEquals(expected, testAction.validate());	
+		Assert.assertEquals("Users cant accept quotes", expected, testAction.validate());	
 	}
 
 }

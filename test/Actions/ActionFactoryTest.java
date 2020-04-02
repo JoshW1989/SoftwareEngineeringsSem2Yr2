@@ -28,6 +28,7 @@ public class ActionFactoryTest {
 		testFactory = new ActionFactory();
 	}
 	
+	// Tries to pass an action that doesnt exist to factory
 	@Test
 	public void actionFactoryIncorrectValueTest() {
 		
@@ -38,6 +39,7 @@ public class ActionFactoryTest {
 		Assert.assertEquals(expected, testAction);	
 	}
 	
+	// Passes a climb command
 	@Test
 	public void actionFactoryReturnsClimbTest() {
 		
@@ -47,6 +49,7 @@ public class ActionFactoryTest {
 		
 	}
 	
+	// Passes reject command
 	@Test
 	public void actionFactoryReturnsRejectTest() {
 		
@@ -56,6 +59,7 @@ public class ActionFactoryTest {
 		
 	}
 	
+	// Passes accept command
 	@Test
 	public void actionFactoryReturnsAcceptTest() {
 		
@@ -65,6 +69,7 @@ public class ActionFactoryTest {
 		
 	}
 	
+	// Passes a submit command
 	@Test
 	public void actionFactoryReturnsSubmitTest() {
 		

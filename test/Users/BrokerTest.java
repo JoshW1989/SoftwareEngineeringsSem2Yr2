@@ -9,7 +9,7 @@ import org.junit.Test;
 public class BrokerTest {
 
 	@Test
-	public void testConstructorComission() {
+	public void testConstructorCommission() {
 		//
 		User broker = new  Broker("test", "John Smith", "broker@vca.com", "987654321", 98009, "password", 1.0);
 		double expected = 1.0;

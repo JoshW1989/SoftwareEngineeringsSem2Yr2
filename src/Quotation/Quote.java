@@ -19,7 +19,7 @@ public class Quote {
     
     private double totalVal;
     private double monthlyCost;
-    private double comissionTotal;
+    private double commissionTotal;
     
     public int getZone() { return zone;}
     public void setZone(int newZone) {zone = newZone;}
@@ -53,8 +53,8 @@ public class Quote {
 	public double getMonthlyCost() {return monthlyCost;}
 	public void setMonthlyCost(double monthlyCost) {this.monthlyCost = monthlyCost;}
 
-	public double getComissionTotal() {return comissionTotal;}
-	public void setComissionTotal(double comissionTotal) {this.comissionTotal = comissionTotal;}
+	public double getCommissionTotal() {return commissionTotal;}
+	public void setCommissionTotal(double commissionTotal) {this.commissionTotal = commissionTotal;}
 	
 	public QuoteState getQuoteState() {return currentState;}
     void setQuoteState(QuoteState newState) {currentState = newState;}    	
@@ -83,7 +83,7 @@ public class Quote {
     	
     	this.setTotalVal(quoteRates.getTotalVal());
     	this.setMonthlyCost(quoteRates.getMonthlyCost());
-    	this.setComissionTotal(quoteRates.getComission());
+    	this.setCommissionTotal(quoteRates.getCommission());
     	
     }
 

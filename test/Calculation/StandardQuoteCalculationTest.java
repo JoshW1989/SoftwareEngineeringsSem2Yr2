@@ -62,12 +62,12 @@ public class StandardQuoteCalculationTest {
 	}
 	
 	@Test
-	public void StandardCheckComissionCalc() {
+	public void StandardCheckCommissionCalc() {
 		QuoteCalculation testCalc = new StandardQuoteCalculation(1, "wheat", 8000000.00, 0.05);
 		
 		double expected = 200000;
 		
-		Assert.assertEquals(expected, testCalc.getComission(), 0);
+		Assert.assertEquals(expected, testCalc.getCommission(), 0);
 	}
 	
 

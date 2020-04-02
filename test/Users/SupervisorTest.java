@@ -6,6 +6,7 @@ import org.junit.Test;
 
 public class SupervisorTest {
 
+	// Ensures tagged employees are forced a 0.05 commission
 	@Test
 	public void testSupervisorConstructor() {
 
@@ -15,7 +16,7 @@ public class SupervisorTest {
 				
 		double expected = 5/100;
 		
-		assertEquals(expected, supervisor.getCommission(), 0);
+		assertEquals("Employee commission should be 0.05", expected, supervisor.getCommission(), 0);
 	}
 
 

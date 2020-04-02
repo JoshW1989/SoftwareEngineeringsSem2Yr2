@@ -5,14 +5,14 @@ public abstract class QuoteCalculation {
 
 	private double totalVal;
 	private double monthlyCost;
-	private double comissionTotal;
+	private double commissionTotal;
 	private double baseCost = 300;
 	private double monthlyModifier = 1.7;
 	
 	private int zone;
 	private String crop;
 	private double hectares;
-	private double userComission;
+	private double userCommission;
 	
 	private Rates rateType;
 	
@@ -25,8 +25,8 @@ public abstract class QuoteCalculation {
 	public double getMonthlyCost() {return monthlyCost;}
 	public void setMonthlyCost(double monthlyCost) {this.monthlyCost = monthlyCost;}
 
-	public double getComission() {return comissionTotal;}
-	public void setComission(double comission) {this.comissionTotal = comission;}
+	public double getCommission() {return commissionTotal;}
+	public void setCommission(double commission) {this.commissionTotal = commission;}
 	
 	public int getZone() {return zone;}
 	public void setZone(int zone) {this.zone = zone;}
@@ -37,16 +37,16 @@ public abstract class QuoteCalculation {
 	public double getHectares() {return hectares;}
 	public void setHectares(double hectares) {this.hectares = hectares;}
 
-	public double getUserComission() {return userComission;}
-	public void setUserComission(double userComission) {this.userComission = userComission;}
+	public double getUserCommission() {return userCommission;}
+	public void setUserCommission(double userCommission) {this.userCommission = userCommission;}
 	
 	
-	public QuoteCalculation(int zone, String crop, double hecatares, double userComission) {
+	public QuoteCalculation(int zone, String crop, double hecatares, double userCommission) {
 		
 		this.zone = zone;
 		this.crop = crop;
 		this.hectares = hecatares;
-		this.userComission = userComission;
+		this.userCommission = userCommission;
 		
 	}
 	
@@ -69,8 +69,8 @@ public abstract class QuoteCalculation {
 	}
 	
 	
-	public void calculateComission() {
-		this.setComission(getTotalVal() * this.getUserComission());
+	public void calculateCommission() {
+		this.setCommission(getTotalVal() * this.getUserCommission());
 	}
 
 
