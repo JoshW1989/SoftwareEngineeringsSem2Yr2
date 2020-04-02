@@ -1,5 +1,7 @@
 package Quotation;
 
+import Calculation.QuoteCalculation;
+import Calculation.StandardQuote;
 import Users.User;
 
 public class Quote {
@@ -14,44 +16,11 @@ public class Quote {
     private User broker;
     private User supervisor;
     private double hectares;
-
-    public Quote(User user, String crop, int zone, double hectares) throws NoQuotePermissionError {
-    	
-    	if (user.getCanRequest() == true) {
-	        setZone(zone);
-	        setCrop(crop);
-	        setBroker(user);
-	        setHectares(hectares);
-	        currentState = new ApplicantState(this);
-    	} else {
-    		throw new NoQuotePermissionError();
-    	}
-    }
-
-    // Used to set the current state of the quote - the state defines how method calls interact with the object
-
-    //possibly have state manager class to stickto SOLID principles
-    void setQuoteState(QuoteState newState) {
-        currentState = newState;
-    }
-    public QuoteState getQuoteState() {return currentState;}
     
-    //TODO insert validation of user permissions here
-    public void climbQuote (String reason, User user) throws IncorrectQuoteStateError {
-        currentState.climb(reason, user);
-    }
-    public void submitQuote () throws IncorrectQuoteStateError {
-        currentState.submit();
-    }
-    public void acceptQuote () throws IncorrectQuoteStateError {
-        currentState.accept();
-    }
-    public void rejectQuote (String reason) throws IncorrectQuoteStateError {
-        currentState.reject(reason);
-    }
-
-
-
+    private double totalVal;
+    private double monthlyCost;
+    private double comissionTotal;
+    
     public int getZone() { return zone;}
     public void setZone(int newZone) {zone = newZone;}
 
@@ -78,5 +47,64 @@ public class Quote {
 	public double getHectares() {return hectares;}
 	public void setHectares(double hectares) {this.hectares = hectares;}
 
+	public double getTotalVal() {return totalVal;}
+	public void setTotalVal(double totalVal) {this.totalVal = totalVal;}
 
+	public double getMonthlyCost() {return monthlyCost;}
+	public void setMonthlyCost(double monthlyCost) {this.monthlyCost = monthlyCost;}
+
+	public double getComissionTotal() {return comissionTotal;}
+	public void setComissionTotal(double comissionTotal) {this.comissionTotal = comissionTotal;}
+	
+	public QuoteState getQuoteState() {return currentState;}
+    void setQuoteState(QuoteState newState) {currentState = newState;}    	
+
+
+    public Quote(User user, String crop, int zone, double hectares) throws NoQuotePermissionError {
+    	
+    	if (user.getCanRequest() == true) {
+	        setZone(zone);
+	        setCrop(crop);
+	        setBroker(user);
+	        setHectares(hectares);
+	        currentState = new ApplicantState(this);
+	        assignValues();
+	        
+    	} else {
+    		throw new NoQuotePermissionError();
+    	}
+    }
+
+
+    public void assignValues() {
+    	
+    	QuoteCalculation quoteRates = new StandardQuote(this.getZone(), this.getCrop(),
+    			this.getHectares(), this.getBroker().getCommission());
+    	
+    	this.setTotalVal(quoteRates.getTotalVal());
+    	this.setMonthlyCost(quoteRates.getMonthlyCost());
+    	this.setComissionTotal(quoteRates.getComission());
+    	
+    }
+
+    
+    public void climbQuote (String reason, User user) throws IncorrectQuoteStateError {
+        currentState.climb(reason, user);
+    }
+    public void submitQuote () throws IncorrectQuoteStateError {
+        currentState.submit();
+    }
+    public void acceptQuote () throws IncorrectQuoteStateError {
+        currentState.accept();
+    }
+    public void rejectQuote (String reason) throws IncorrectQuoteStateError {
+        currentState.reject(reason);
+    }
+
+
+
+
+
+	
+	
 }

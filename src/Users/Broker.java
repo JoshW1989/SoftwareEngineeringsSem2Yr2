@@ -1,7 +1,5 @@
 package Users;
 
-import Quotation.*;
-
 public class Broker extends User {
 
 

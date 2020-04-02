@@ -1,9 +1,5 @@
 package Users;
 
-import Quotation.Quote;
-
-import java.util.ArrayList;
-
 public abstract class User {
 
     //Attributes
